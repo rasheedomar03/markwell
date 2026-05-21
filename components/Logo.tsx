@@ -14,7 +14,7 @@ export default function Logo({ size = "md", color = "var(--gold)" }: LogoProps) 
   const s = sizes[size];
 
   return (
-    <span style={{ display: "inline-flex", alignItems: "center", gap: 10 }}>
+    <span style={{ display: "inline-flex", alignItems: "center", gap: 12 }}>
       {/* WM lettermark */}
       <span
         style={{
@@ -29,6 +29,9 @@ export default function Logo({ size = "md", color = "var(--gold)" }: LogoProps) 
       >
         WM
       </span>
+
+      {/* Divider */}
+      <span style={{ width: 1, height: s.mark * 0.7, background: "var(--border)", display: "inline-block" }} />
 
       {/* WEARMILL wordmark */}
       <span
