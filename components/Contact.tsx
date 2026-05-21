@@ -33,7 +33,7 @@ export default function Contact() {
   }
 
   return (
-    <section id="contact" style={{ padding: "100px 24px", background: "var(--surface)" }}>
+    <section id="contact" style={{ padding: "100px 24px", background: "var(--bg)" }}>
       <div style={{ maxWidth: 1120, margin: "0 auto", display: "grid", gridTemplateColumns: "1fr 1fr", gap: 96, alignItems: "start" }}>
 
         {/* Left: Copy */}

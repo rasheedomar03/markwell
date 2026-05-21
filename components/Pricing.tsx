@@ -7,7 +7,7 @@ const tiers = [
 
 export default function Pricing() {
   return (
-    <section id="pricing" style={{ padding: "100px 24px", background: "var(--bg)" }}>
+    <section id="pricing" style={{ padding: "100px 24px", background: "var(--surface)" }}>
       <div style={{ maxWidth: 1120, margin: "0 auto" }}>
 
         <p style={{ fontSize: 11, fontWeight: 500, letterSpacing: "0.1em", textTransform: "uppercase", color: "var(--gold)", fontFamily: "var(--font-geist-mono)", marginBottom: 16 }}>

@@ -1,6 +1,6 @@
 export default function Hero() {
   return (
-    <section style={{ paddingTop: 160, paddingBottom: 120, padding: "160px 24px 120px" }}>
+    <section className="hero-noise" style={{ paddingTop: 160, paddingBottom: 120, padding: "160px 24px 120px" }}>
       <div style={{ maxWidth: 1120, margin: "0 auto" }}>
 
         {/* Eyebrow */}
@@ -14,7 +14,12 @@ export default function Hero() {
         {/* Headline */}
         <h1 style={{ fontSize: "clamp(48px, 7vw, 88px)", fontWeight: 700, lineHeight: 1.04, letterSpacing: "-0.04em", color: "var(--text)", marginBottom: 28, maxWidth: 820 }}>
           Your brand,<br />
-          <span style={{ color: "var(--gold)" }}>on everything.</span>
+          <span style={{
+              background: "linear-gradient(90deg, #C9973A 0%, #E4B84D 35%, #F5D890 65%, #E4B84D 100%)",
+              WebkitBackgroundClip: "text",
+              WebkitTextFillColor: "transparent",
+              backgroundClip: "text",
+            }}>on everything.</span>
         </h1>
 
         {/* Subheading */}

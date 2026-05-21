@@ -35,11 +35,22 @@ export default function Products() {
               key={name}
               style={{
                 background: "var(--bg)", padding: "32px", borderRadius: 2,
-                transition: "background 0.15s",
+                transition: "background 0.2s, transform 0.2s, box-shadow 0.2s, border-color 0.2s",
                 cursor: "default",
+                border: "1px solid transparent",
               }}
-              onMouseEnter={e => (e.currentTarget.style.background = "var(--surface-2)")}
-              onMouseLeave={e => (e.currentTarget.style.background = "var(--bg)")}
+              onMouseEnter={e => {
+                e.currentTarget.style.background = "var(--surface-2)";
+                e.currentTarget.style.transform = "translateY(-3px)";
+                e.currentTarget.style.boxShadow = "0 12px 40px rgba(228,184,77,0.07)";
+                e.currentTarget.style.borderColor = "rgba(228,184,77,0.18)";
+              }}
+              onMouseLeave={e => {
+                e.currentTarget.style.background = "var(--bg)";
+                e.currentTarget.style.transform = "translateY(0)";
+                e.currentTarget.style.boxShadow = "none";
+                e.currentTarget.style.borderColor = "transparent";
+              }}
             >
               <div style={{ width: 40, height: 40, display: "flex", alignItems: "center", justifyContent: "center", background: "var(--gold-dim)", borderRadius: 8, marginBottom: 20 }}>
                 <Icon size={18} color="var(--gold)" strokeWidth={1.75} />
