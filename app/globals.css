@@ -108,6 +108,31 @@ h1, h2, h3, h4, h5, h6 {
   .products-grid { grid-template-columns: 1fr; }
 }
 
+/* ── Trust strip ─────────────────────────────────────── */
+.trust-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 32px;
+}
+@media (max-width: 760px) {
+  .trust-grid { grid-template-columns: repeat(2, 1fr); gap: 24px; }
+}
+@media (max-width: 420px) {
+  .trust-grid { grid-template-columns: 1fr; }
+}
+
+/* ── Why Us split ────────────────────────────────────── */
+.why-us-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0 96px;
+  align-items: start;
+}
+@media (max-width: 760px) {
+  .why-us-grid { grid-template-columns: 1fr; gap: 48px; }
+  .why-us-sticky { position: static !important; }
+}
+
 /* ── HowItWorks step item ────────────────────────────── */
 .step-item {
   display: grid;

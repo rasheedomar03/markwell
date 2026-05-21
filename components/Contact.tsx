@@ -64,7 +64,23 @@ export default function Contact() {
             ))}
           </div>
 
-          <div style={{ marginTop: 48, paddingTop: 32, borderTop: "1px solid var(--border)" }}>
+          {/* Guarantee */}
+          <div style={{ marginTop: 48, paddingTop: 32, borderTop: "1px solid var(--border)", display: "flex", alignItems: "flex-start", gap: 16 }}>
+            <div style={{ width: 40, height: 40, display: "flex", alignItems: "center", justifyContent: "center", background: "var(--gold-dim)", borderRadius: 8, flexShrink: 0 }}>
+              <svg width="18" height="18" viewBox="0 0 18 18" fill="none" aria-hidden="true">
+                <path d="M9 1.5L2.5 4.5V8.5C2.5 12.36 5.28 15.95 9 16.5C12.72 15.95 15.5 12.36 15.5 8.5V4.5L9 1.5Z" stroke="var(--gold)" strokeWidth="1.5" strokeLinejoin="round"/>
+                <path d="M6 9L8 11L12 7" stroke="var(--gold)" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
+              </svg>
+            </div>
+            <div>
+              <p style={{ fontSize: 14, fontWeight: 600, color: "var(--text)", marginBottom: 4 }}>100% Satisfaction Guarantee</p>
+              <p style={{ fontSize: 13, color: "var(--text-secondary)", lineHeight: 1.6 }}>
+                Not happy with your order? We&apos;ll reprint it or refund you. No questions asked.
+              </p>
+            </div>
+          </div>
+
+          <div style={{ marginTop: 24 }}>
             <p style={{ fontSize: 13, color: "var(--text-muted)", marginBottom: 4 }}>Or email us directly</p>
             <a href="mailto:hello@wearmill.com" style={{ fontSize: 15, color: "var(--gold)", textDecoration: "none", fontWeight: 500 }}>
               hello@wearmill.com
