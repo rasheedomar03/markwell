@@ -44,6 +44,7 @@ export default function Logo({ size = "md", color = "var(--gold)" }: LogoProps) 
           lineHeight: 1,
           textTransform: "uppercase" as const,
           display: "inline-block",
+          transform: "translateY(2px)",
         }}
       >
         WEARMILL
