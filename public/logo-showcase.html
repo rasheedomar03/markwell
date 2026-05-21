@@ -1,0 +1,416 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Markwell — Logo Showcase</title>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;800&family=Inter:wght@200;300;400;500;600&family=JetBrains+Mono:wght@300;400&display=swap" rel="stylesheet" />
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      background: #07070A;
+      color: #F0F0F5;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    /* Grain overlay */
+    body::before {
+      content: '';
+      position: fixed; top: 0; left: 0; width: 100%; height: 100%;
+      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 400 400' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.04'/%3E%3C/svg%3E");
+      pointer-events: none; z-index: 9999;
+    }
+
+    .page { max-width: 1280px; margin: 0 auto; padding: 72px 48px 96px; }
+
+    /* Header */
+    .header { margin-bottom: 72px; }
+    .eyebrow { font-family: 'JetBrains Mono', monospace; font-size: 10px; letter-spacing: 0.18em; text-transform: uppercase; color: #4A4A5A; margin-bottom: 16px; }
+    .title { font-family: 'Playfair Display', serif; font-size: 42px; font-weight: 700; letter-spacing: -0.03em; color: #F0F0F5; line-height: 1.1; }
+    .title span { color: #E4B84D; }
+    .subtitle { font-size: 14px; color: #8A8A9A; margin-top: 12px; font-weight: 300; max-width: 480px; line-height: 1.7; }
+
+    /* Grid */
+    .grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 2px; margin-bottom: 2px; }
+    .grid-2 { display: grid; grid-template-columns: repeat(2, 1fr); gap: 2px; }
+
+    .card {
+      background: #0D0D11;
+      border: 1px solid rgba(255,255,255,0.04);
+      padding: 40px 32px 36px;
+      transition: border-color 0.4s ease, background 0.4s ease;
+      cursor: pointer;
+      position: relative;
+    }
+    .card:hover { border-color: rgba(228,184,77,0.22); background: #111108; }
+    .card.featured { grid-column: span 2; border-color: rgba(228,184,77,0.15); background: #0F0F0A; }
+
+    .card-id {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 10px; letter-spacing: 0.14em; text-transform: uppercase;
+      color: #E4B84D; margin-bottom: 32px;
+    }
+    .mark-area {
+      display: flex; align-items: center; justify-content: center;
+      padding: 44px 0 40px;
+    }
+    .card.featured .mark-area { padding: 56px 0 52px; }
+
+    .card-title { font-size: 13px; font-weight: 500; color: #F0F0F5; margin-bottom: 6px; letter-spacing: -0.01em; }
+    .card-body { font-size: 11px; font-weight: 300; color: #4A4A5A; line-height: 1.7; }
+
+    /* Wordmark lockup */
+    .lockup {
+      display: flex; align-items: center; gap: 12px;
+      margin-top: 24px; padding: 14px 18px;
+      background: rgba(255,255,255,0.02);
+      border: 1px solid rgba(255,255,255,0.04);
+      border-radius: 2px;
+    }
+    .wm { font-family: 'Playfair Display', serif; font-size: 16px; font-weight: 700; letter-spacing: -0.02em; color: #F0F0F5; }
+    .wm span { color: #E4B84D; }
+
+    /* Nav strip */
+    .section-label { font-family: 'JetBrains Mono', monospace; font-size: 10px; letter-spacing: 0.14em; text-transform: uppercase; color: #2A2A3A; margin: 32px 0 12px; }
+    .nav-bar {
+      background: #0D0D11; border: 1px solid rgba(255,255,255,0.04);
+      padding: 0 28px; height: 64px;
+      display: flex; align-items: center; justify-content: space-between;
+      margin-bottom: 2px;
+    }
+    .nav-left { display: flex; align-items: center; gap: 10px; }
+    .nav-wm { font-family: 'Playfair Display', serif; font-size: 14px; font-weight: 700; letter-spacing: -0.02em; }
+    .nav-wm span { color: #E4B84D; }
+    .nav-right { display: flex; align-items: center; gap: 28px; }
+    .nav-link { font-size: 12px; color: #4A4A5A; font-weight: 400; }
+    .nav-cta { background: #E4B84D; color: #07070A; font-size: 12px; font-weight: 600; padding: 7px 16px; border-radius: 6px; letter-spacing: 0.01em; }
+
+    /* Context strip */
+    .ctx-strip { display: grid; grid-template-columns: repeat(6, 1fr); gap: 2px; }
+    .ctx { padding: 20px; display: flex; flex-direction: column; align-items: center; gap: 10px; }
+    .ctx-lbl { font-family: 'JetBrains Mono', monospace; font-size: 9px; letter-spacing: 0.1em; text-transform: uppercase; color: #2A2A3A; }
+    .ctx-lbl.light { color: #B0B0A0; }
+    .ctx-lbl.gold { color: rgba(7,7,10,0.45); }
+  </style>
+</head>
+<body>
+<div class="page">
+
+  <!-- Header -->
+  <div class="header">
+    <div class="eyebrow">Logo Generator Skill · Phase 2 Output</div>
+    <div class="title">Mark<span>well</span> — Summit Mark</div>
+    <div class="subtitle">8 design variants of the Summit Mark. One closed path that reads as M (mountain peaks) with generous negative space, precise proportions, and single focal point per variant.</div>
+  </div>
+
+  <!-- Row 1: 4 variants -->
+  <div class="grid">
+
+    <!-- V1: Classic Summit (featured) -->
+    <div class="card featured">
+      <div class="card-id">V-01 — Recommended</div>
+      <div class="mark-area">
+        <!-- Rounded valley via quadratic bezier. Generous 40%+ negative space. -->
+        <svg width="130" height="120" viewBox="0 0 100 100" fill="none">
+          <path d="M 10,82 L 32,18 Q 50,54 68,18 L 90,82 Z" fill="#E4B84D"/>
+          <line x1="8" y1="91" x2="92" y2="91" stroke="#E4B84D" stroke-width="2.5" stroke-linecap="round"/>
+        </svg>
+      </div>
+      <div class="card-title">Classic Summit</div>
+      <div class="card-body">Gold silhouette with bezier-curved valley — rounded negative space per professional SVG principle. Thin baseline anchors the form. Reads instantly at all sizes.</div>
+      <div class="lockup">
+        <svg width="26" height="24" viewBox="0 0 100 100" fill="none">
+          <path d="M 10,82 L 32,18 Q 50,54 68,18 L 90,82 Z" fill="#E4B84D"/>
+          <line x1="8" y1="92" x2="92" y2="92" stroke="#E4B84D" stroke-width="2.5" stroke-linecap="round"/>
+        </svg>
+        <div class="wm">Mark<span>well</span></div>
+      </div>
+    </div>
+
+    <!-- V2: Sharp & Tall -->
+    <div class="card">
+      <div class="card-id">V-02</div>
+      <div class="mark-area">
+        <svg width="88" height="96" viewBox="0 0 100 100" fill="none">
+          <path d="M 12,88 L 32,8 Q 50,46 68,8 L 88,88 Z" fill="#E4B84D"/>
+        </svg>
+      </div>
+      <div class="card-title">Sharp & Tall</div>
+      <div class="card-body">Taller peak ratio — more dramatic. No baseline. The silhouette alone carries the M read. Crown-like authority.</div>
+      <div class="lockup">
+        <svg width="22" height="24" viewBox="0 0 100 100" fill="none">
+          <path d="M 12,88 L 32,8 Q 50,46 68,8 L 88,88 Z" fill="#E4B84D"/>
+        </svg>
+        <div class="wm">Mark<span>well</span></div>
+      </div>
+    </div>
+
+    <!-- V3: Stroke Only -->
+    <div class="card">
+      <div class="card-id">V-03</div>
+      <div class="mark-area">
+        <svg width="88" height="96" viewBox="0 0 100 100" fill="none">
+          <path d="M 10,82 L 32,16 Q 50,52 68,16 L 90,82" stroke="#E4B84D" stroke-width="3.5" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+          <line x1="8" y1="91" x2="92" y2="91" stroke="#E4B84D" stroke-width="2" stroke-linecap="round"/>
+        </svg>
+      </div>
+      <div class="card-title">Hairline Summit</div>
+      <div class="card-body">Pure stroke — no fill. Editorial weight, fashion-brand feel. Works reversed on gold. Maximum versatility.</div>
+      <div class="lockup">
+        <svg width="22" height="24" viewBox="0 0 100 100" fill="none">
+          <path d="M 10,82 L 32,16 Q 50,52 68,16 L 90,82" stroke="#E4B84D" stroke-width="3.5" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+          <line x1="8" y1="92" x2="92" y2="92" stroke="#E4B84D" stroke-width="2" stroke-linecap="round"/>
+        </svg>
+        <div class="wm">Mark<span>well</span></div>
+      </div>
+    </div>
+
+    <!-- V4: Summit Dots -->
+    <div class="card">
+      <div class="card-id">V-04</div>
+      <div class="mark-area">
+        <svg width="88" height="96" viewBox="0 0 100 100" fill="none">
+          <path d="M 10,82 L 32,20 Q 50,54 68,20 L 90,82 Z" fill="#E4B84D"/>
+          <!-- Summit marker dots at peaks — rounded cutouts per design rule -->
+          <circle cx="32" cy="20" r="5" fill="#07070A"/>
+          <circle cx="68" cy="20" r="5" fill="#07070A"/>
+          <line x1="8" y1="91" x2="92" y2="91" stroke="#E4B84D" stroke-width="2.5" stroke-linecap="round"/>
+        </svg>
+      </div>
+      <div class="card-title">Summit Markers</div>
+      <div class="card-body">Dot markers at each peak — trail map / topography metaphor. Rounded cutouts are intentional design, not decoration.</div>
+      <div class="lockup">
+        <svg width="22" height="24" viewBox="0 0 100 100" fill="none">
+          <path d="M 10,82 L 32,20 Q 50,54 68,20 L 90,82 Z" fill="#E4B84D"/>
+          <circle cx="32" cy="20" r="5" fill="#07070A"/>
+          <circle cx="68" cy="20" r="5" fill="#07070A"/>
+          <line x1="8" y1="92" x2="92" y2="92" stroke="#E4B84D" stroke-width="2.5" stroke-linecap="round"/>
+        </svg>
+        <div class="wm">Mark<span>well</span></div>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- Row 2: 4 more variants -->
+  <div class="grid">
+
+    <!-- V5: Coin Medallion -->
+    <div class="card featured">
+      <div class="card-id">V-05 — Coin / Embroidery</div>
+      <div class="mark-area">
+        <svg width="130" height="120" viewBox="0 0 100 100" fill="none">
+          <!-- Gold ring -->
+          <circle cx="50" cy="50" r="46" fill="#E4B84D"/>
+          <!-- Dark inner field -->
+          <circle cx="50" cy="50" r="38" fill="#07070A"/>
+          <!-- Summit mark inside — gold on dark -->
+          <path d="M 18,72 L 34,30 Q 50,56 66,30 L 82,72 Z" fill="#E4B84D"/>
+          <!-- Baseline -->
+          <line x1="17" y1="80" x2="83" y2="80" stroke="#E4B84D" stroke-width="2" stroke-linecap="round"/>
+        </svg>
+      </div>
+      <div class="card-title">Coin Medallion</div>
+      <div class="card-body">Summit mark inside a gold ring. Works as wax seal, embroidery patch, embossed label, or favicon. The most versatile format across all physical applications.</div>
+      <div class="lockup">
+        <svg width="26" height="26" viewBox="0 0 100 100" fill="none">
+          <circle cx="50" cy="50" r="46" fill="#E4B84D"/>
+          <circle cx="50" cy="50" r="38" fill="#07070A"/>
+          <path d="M 18,72 L 34,30 Q 50,56 66,30 L 82,72 Z" fill="#E4B84D"/>
+          <line x1="17" y1="80" x2="83" y2="80" stroke="#E4B84D" stroke-width="2" stroke-linecap="round"/>
+        </svg>
+        <div class="wm">Mark<span>well</span></div>
+      </div>
+    </div>
+
+    <!-- V6: Negative Block -->
+    <div class="card">
+      <div class="card-id">V-06</div>
+      <div class="mark-area">
+        <svg width="88" height="88" viewBox="0 0 100 100" fill="none">
+          <!-- Gold block -->
+          <rect x="6" y="14" width="88" height="72" rx="5" fill="#E4B84D"/>
+          <!-- Summit cutout — M shape carved in -->
+          <path d="M 16,78 L 34,24 Q 50,54 66,24 L 84,78 Z" fill="#07070A"/>
+          <!-- Baseline in gold restored -->
+          <line x1="16" y1="86" x2="84" y2="86" stroke="#E4B84D" stroke-width="0" opacity="0"/>
+        </svg>
+      </div>
+      <div class="card-title">Negative Block</div>
+      <div class="card-body">Summit carved from a gold block — the form lives in the absence. Letterpress / die-stamp logic. Reads as a stamp or embossed label.</div>
+      <div class="lockup">
+        <svg width="26" height="22" viewBox="0 0 100 88" fill="none">
+          <rect x="4" y="2" width="92" height="84" rx="5" fill="#E4B84D"/>
+          <path d="M 14,80 L 32,16 Q 50,50 68,16 L 86,80 Z" fill="#07070A"/>
+        </svg>
+        <div class="wm">Mark<span>well</span></div>
+      </div>
+    </div>
+
+    <!-- V7: Ring Frame -->
+    <div class="card">
+      <div class="card-id">V-07</div>
+      <div class="mark-area">
+        <svg width="88" height="96" viewBox="0 0 100 100" fill="none">
+          <!-- Outer ring -->
+          <circle cx="50" cy="50" r="44" stroke="#E4B84D" stroke-width="2.5" fill="none"/>
+          <!-- Summit inside ring -->
+          <path d="M 14,76 L 33,26 Q 50,55 67,26 L 86,76 Z" fill="#E4B84D"/>
+          <line x1="13" y1="85" x2="87" y2="85" stroke="#E4B84D" stroke-width="2" stroke-linecap="round"/>
+        </svg>
+      </div>
+      <div class="card-title">Ring Badge</div>
+      <div class="card-body">Summit mark framed in a circle — badge / certification seal feel. The ring says "guaranteed quality."</div>
+      <div class="lockup">
+        <svg width="24" height="24" viewBox="0 0 100 100" fill="none">
+          <circle cx="50" cy="50" r="44" stroke="#E4B84D" stroke-width="2.5" fill="none"/>
+          <path d="M 14,76 L 33,26 Q 50,55 67,26 L 86,76 Z" fill="#E4B84D"/>
+          <line x1="13" y1="85" x2="87" y2="85" stroke="#E4B84D" stroke-width="2" stroke-linecap="round"/>
+        </svg>
+        <div class="wm">Mark<span>well</span></div>
+      </div>
+    </div>
+
+    <!-- V8: Unified MW -->
+    <div class="card">
+      <div class="card-id">V-08</div>
+      <div class="mark-area">
+        <!-- Single closed hexagonal path: top reads M, bottom reads W. Same shape rotated 180°. -->
+        <svg width="80" height="96" viewBox="0 0 100 100" fill="none">
+          <path d="M 10,94 L 10,6 L 50,32 L 90,6 L 90,94 L 50,68 Z" fill="#E4B84D"/>
+        </svg>
+      </div>
+      <div class="card-title">Unified MW</div>
+      <div class="card-body">One path = both letters. Top half reads M, bottom half reads W. Flip it 180° — same mark. Original and proprietary.</div>
+      <div class="lockup">
+        <svg width="20" height="26" viewBox="0 0 100 100" fill="none">
+          <path d="M 10,94 L 10,6 L 50,32 L 90,6 L 90,94 L 50,68 Z" fill="#E4B84D"/>
+        </svg>
+        <div class="wm">Mark<span>well</span></div>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- Nav previews -->
+  <div class="section-label">Nav bar — V-01 Classic Summit</div>
+  <div class="nav-bar">
+    <div class="nav-left">
+      <svg width="22" height="20" viewBox="0 0 100 100" fill="none">
+        <path d="M 10,82 L 32,18 Q 50,54 68,18 L 90,82 Z" fill="#E4B84D"/>
+        <line x1="8" y1="93" x2="92" y2="93" stroke="#E4B84D" stroke-width="3" stroke-linecap="round"/>
+      </svg>
+      <div class="nav-wm">Mark<span>well</span></div>
+    </div>
+    <div class="nav-right">
+      <span class="nav-link">Products</span>
+      <span class="nav-link">How It Works</span>
+      <span class="nav-link">Pricing</span>
+      <span class="nav-cta">Get a Quote</span>
+    </div>
+  </div>
+
+  <div class="section-label" style="margin-top:24px;">Nav bar — V-05 Coin Medallion</div>
+  <div class="nav-bar">
+    <div class="nav-left">
+      <svg width="22" height="22" viewBox="0 0 100 100" fill="none">
+        <circle cx="50" cy="50" r="46" fill="#E4B84D"/>
+        <circle cx="50" cy="50" r="38" fill="#07070A"/>
+        <path d="M 18,72 L 34,30 Q 50,56 66,30 L 82,72 Z" fill="#E4B84D"/>
+        <line x1="17" y1="80" x2="83" y2="80" stroke="#E4B84D" stroke-width="2" stroke-linecap="round"/>
+      </svg>
+      <div class="nav-wm">Mark<span>well</span></div>
+    </div>
+    <div class="nav-right">
+      <span class="nav-link">Products</span>
+      <span class="nav-link">How It Works</span>
+      <span class="nav-link">Pricing</span>
+      <span class="nav-cta">Get a Quote</span>
+    </div>
+  </div>
+
+  <!-- Context tests -->
+  <div class="section-label" style="margin-top:24px;">V-01 across all backgrounds</div>
+  <div class="ctx-strip">
+    <div class="ctx" style="background:#07070A;border:1px solid rgba(255,255,255,0.04)">
+      <svg width="44" height="40" viewBox="0 0 100 100" fill="none">
+        <path d="M 10,82 L 32,18 Q 50,54 68,18 L 90,82 Z" fill="#E4B84D"/>
+        <line x1="8" y1="92" x2="92" y2="92" stroke="#E4B84D" stroke-width="2.5" stroke-linecap="round"/>
+      </svg>
+      <div class="ctx-lbl">Dark</div>
+    </div>
+    <div class="ctx" style="background:#0F0F12;border:1px solid rgba(255,255,255,0.04)">
+      <svg width="44" height="40" viewBox="0 0 100 100" fill="none">
+        <path d="M 10,82 L 32,18 Q 50,54 68,18 L 90,82 Z" fill="#E4B84D"/>
+        <line x1="8" y1="92" x2="92" y2="92" stroke="#E4B84D" stroke-width="2.5" stroke-linecap="round"/>
+      </svg>
+      <div class="ctx-lbl">Surface</div>
+    </div>
+    <div class="ctx" style="background:#ffffff">
+      <svg width="44" height="40" viewBox="0 0 100 100" fill="none">
+        <path d="M 10,82 L 32,18 Q 50,54 68,18 L 90,82 Z" fill="#C4942A"/>
+        <line x1="8" y1="92" x2="92" y2="92" stroke="#C4942A" stroke-width="2.5" stroke-linecap="round"/>
+      </svg>
+      <div class="ctx-lbl light">White</div>
+    </div>
+    <div class="ctx" style="background:#F0F0F5">
+      <svg width="44" height="40" viewBox="0 0 100 100" fill="none">
+        <path d="M 10,82 L 32,18 Q 50,54 68,18 L 90,82 Z" fill="#C4942A"/>
+        <line x1="8" y1="92" x2="92" y2="92" stroke="#C4942A" stroke-width="2.5" stroke-linecap="round"/>
+      </svg>
+      <div class="ctx-lbl light">Light</div>
+    </div>
+    <div class="ctx" style="background:#E4B84D">
+      <svg width="44" height="40" viewBox="0 0 100 100" fill="none">
+        <path d="M 10,82 L 32,18 Q 50,54 68,18 L 90,82 Z" fill="#07070A"/>
+        <line x1="8" y1="92" x2="92" y2="92" stroke="#07070A" stroke-width="2.5" stroke-linecap="round"/>
+      </svg>
+      <div class="ctx-lbl gold">Gold bg</div>
+    </div>
+    <div class="ctx" style="background:#000000">
+      <svg width="44" height="40" viewBox="0 0 100 100" fill="none">
+        <path d="M 10,82 L 32,18 Q 50,54 68,18 L 90,82 Z" fill="#E4B84D"/>
+        <line x1="8" y1="92" x2="92" y2="92" stroke="#E4B84D" stroke-width="2.5" stroke-linecap="round"/>
+      </svg>
+      <div class="ctx-lbl">Black</div>
+    </div>
+  </div>
+
+  <!-- Size stress test -->
+  <div class="section-label" style="margin-top:24px;">Scale test — V-01</div>
+  <div style="background:#0D0D11;border:1px solid rgba(255,255,255,0.04);padding:28px 32px;display:flex;align-items:flex-end;gap:40px;flex-wrap:wrap;">
+    <div style="display:flex;flex-direction:column;align-items:center;gap:10px;">
+      <svg width="96" height="88" viewBox="0 0 100 100" fill="none"><path d="M 10,82 L 32,18 Q 50,54 68,18 L 90,82 Z" fill="#E4B84D"/><line x1="8" y1="92" x2="92" y2="92" stroke="#E4B84D" stroke-width="2.5" stroke-linecap="round"/></svg>
+      <div style="font-family:'JetBrains Mono',monospace;font-size:9px;color:#2A2A3A;letter-spacing:0.1em;">96px</div>
+    </div>
+    <div style="display:flex;flex-direction:column;align-items:center;gap:10px;">
+      <svg width="64" height="58" viewBox="0 0 100 100" fill="none"><path d="M 10,82 L 32,18 Q 50,54 68,18 L 90,82 Z" fill="#E4B84D"/><line x1="8" y1="92" x2="92" y2="92" stroke="#E4B84D" stroke-width="2.5" stroke-linecap="round"/></svg>
+      <div style="font-family:'JetBrains Mono',monospace;font-size:9px;color:#2A2A3A;letter-spacing:0.1em;">64px</div>
+    </div>
+    <div style="display:flex;flex-direction:column;align-items:center;gap:10px;">
+      <svg width="40" height="36" viewBox="0 0 100 100" fill="none"><path d="M 10,82 L 32,18 Q 50,54 68,18 L 90,82 Z" fill="#E4B84D"/><line x1="8" y1="92" x2="92" y2="92" stroke="#E4B84D" stroke-width="2.5" stroke-linecap="round"/></svg>
+      <div style="font-family:'JetBrains Mono',monospace;font-size:9px;color:#2A2A3A;letter-spacing:0.1em;">40px</div>
+    </div>
+    <div style="display:flex;flex-direction:column;align-items:center;gap:10px;">
+      <svg width="28" height="25" viewBox="0 0 100 100" fill="none"><path d="M 10,82 L 32,18 Q 50,54 68,18 L 90,82 Z" fill="#E4B84D"/><line x1="8" y1="92" x2="92" y2="92" stroke="#E4B84D" stroke-width="2.5" stroke-linecap="round"/></svg>
+      <div style="font-family:'JetBrains Mono',monospace;font-size:9px;color:#2A2A3A;letter-spacing:0.1em;">28px nav</div>
+    </div>
+    <div style="display:flex;flex-direction:column;align-items:center;gap:10px;">
+      <svg width="20" height="18" viewBox="0 0 100 100" fill="none"><path d="M 10,82 L 32,18 Q 50,54 68,18 L 90,82 Z" fill="#E4B84D"/><line x1="8" y1="92" x2="92" y2="92" stroke="#E4B84D" stroke-width="2.5" stroke-linecap="round"/></svg>
+      <div style="font-family:'JetBrains Mono',monospace;font-size:9px;color:#2A2A3A;letter-spacing:0.1em;">20px</div>
+    </div>
+    <div style="display:flex;flex-direction:column;align-items:center;gap:10px;">
+      <svg width="16" height="14" viewBox="0 0 100 100" fill="none"><path d="M 10,82 L 32,18 Q 50,54 68,18 L 90,82 Z" fill="#E4B84D"/><line x1="8" y1="92" x2="92" y2="92" stroke="#E4B84D" stroke-width="3" stroke-linecap="round"/></svg>
+      <div style="font-family:'JetBrains Mono',monospace;font-size:9px;color:#2A2A3A;letter-spacing:0.1em;">16px fav</div>
+    </div>
+  </div>
+
+  <div style="font-family:'JetBrains Mono',monospace;font-size:9px;color:#1A1A2A;letter-spacing:0.1em;text-align:center;padding-top:32px;">
+    Generated with logo-generator-skill · localhost:3000/logo-showcase.html
+  </div>
+
+</div>
+</body>
+</html>

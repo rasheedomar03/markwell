@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Markwell — Final 3</title>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet" />
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body { background: #070709; color: #F0F0F5; font-family: 'Inter', sans-serif; padding: 56px 32px; }
+    h1 { font-size: 11px; font-weight: 500; letter-spacing: 0.12em; text-transform: uppercase; color: #8A8A9A; margin-bottom: 48px; }
+
+    .grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 3px; margin-bottom: 3px; }
+
+    .card { background: #0F0F12; padding: 52px 40px 44px; border: 1px solid rgba(255,255,255,0.06); }
+    .card.winner { border-color: rgba(228,184,77,0.25); background: #131310; }
+
+    .num { font-size: 11px; font-weight: 500; letter-spacing: 0.1em; text-transform: uppercase; color: #E4B84D; margin-bottom: 8px; font-family: monospace; }
+    .concept-name { font-size: 18px; font-weight: 600; color: #F0F0F5; margin-bottom: 40px; letter-spacing: -0.02em; }
+
+    /* Large mark display */
+    .mark-display { display: flex; justify-content: center; align-items: center; padding: 48px 0; margin-bottom: 40px; border: 1px solid rgba(255,255,255,0.06); background: #070709; border-radius: 2px; }
+
+    /* Full logo */
+    .full-logo { display: flex; align-items: center; gap: 14px; margin-bottom: 32px; padding: 20px 24px; background: #070709; border: 1px solid rgba(255,255,255,0.04); border-radius: 2px; }
+    .wordmark { font-family: 'Playfair Display', serif; font-size: 22px; font-weight: 700; letter-spacing: -0.02em; color: #F0F0F5; }
+    .wordmark span { color: #E4B84D; }
+
+    .desc { font-size: 13px; color: #8A8A9A; line-height: 1.7; margin-bottom: 20px; }
+    .pros { display: flex; flex-direction: column; gap: 6px; }
+    .pro { font-size: 12px; color: #4A4A5A; display: flex; gap: 8px; }
+    .pro::before { content: "→"; color: #E4B84D; flex-shrink: 0; }
+
+    /* Variations row */
+    .variations { background: #0F0F12; border: 1px solid rgba(255,255,255,0.06); padding: 32px; margin-bottom: 3px; }
+    .var-label { font-size: 11px; letter-spacing: 0.1em; text-transform: uppercase; color: #4A4A5A; margin-bottom: 24px; font-family: monospace; }
+    .var-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 3px; }
+    .var-card { background: #070709; padding: 28px 24px; display: flex; align-items: center; gap: 12px; }
+    .var-card.light { background: #F0F0F5; }
+    .var-name { font-family: 'Playfair Display', serif; font-size: 14px; font-weight: 700; letter-spacing: -0.02em; }
+    .var-name span { color: #E4B84D; }
+    .var-name.dark-text { color: #07070A; }
+    .var-name.dark-text span { color: #C4942A; }
+
+    .nav-bar { background: #0F0F12; border: 1px solid rgba(255,255,255,0.06); padding: 0 24px; height: 64px; display: flex; align-items: center; justify-content: space-between; margin-bottom: 3px; }
+    .nav-logo { display: flex; align-items: center; gap: 10px; }
+    .nav-links { display: flex; gap: 32px; align-items: center; }
+    .nav-link { font-size: 13px; color: #8A8A9A; }
+    .nav-cta { background: #E4B84D; color: #07070A; font-size: 13px; font-weight: 600; padding: 7px 18px; border-radius: 7px; }
+    .nav-wordmark { font-family: 'Playfair Display', serif; font-size: 15px; font-weight: 700; letter-spacing: -0.02em; }
+    .nav-wordmark span { color: #E4B84D; }
+  </style>
+</head>
+<body>
+  <h1>Markwell — Final 3 Concepts</h1>
+
+  <div class="grid">
+
+    <!-- Concept 4: Print Frame -->
+    <div class="card">
+      <div class="num">04</div>
+      <div class="concept-name">The Print Frame</div>
+
+      <div class="mark-display">
+        <svg width="96" height="96" viewBox="0 0 48 48" fill="none" stroke="#E4B84D" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <rect x="4" y="4" width="40" height="40" rx="3"/>
+          <rect x="13" y="13" width="22" height="22" rx="1"/>
+          <line x1="4" y1="13" x2="13" y2="13"/><line x1="13" y1="4" x2="13" y2="13"/>
+          <line x1="44" y1="13" x2="35" y2="13"/><line x1="35" y1="4" x2="35" y2="13"/>
+          <line x1="4" y1="35" x2="13" y2="35"/><line x1="13" y1="44" x2="13" y2="35"/>
+          <line x1="44" y1="35" x2="35" y2="35"/><line x1="35" y1="44" x2="35" y2="35"/>
+        </svg>
+      </div>
+
+      <div class="full-logo">
+        <svg width="28" height="28" viewBox="0 0 48 48" fill="none" stroke="#E4B84D" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+          <rect x="4" y="4" width="40" height="40" rx="3"/>
+          <rect x="13" y="13" width="22" height="22" rx="1"/>
+          <line x1="4" y1="13" x2="13" y2="13"/><line x1="13" y1="4" x2="13" y2="13"/>
+          <line x1="44" y1="13" x2="35" y2="13"/><line x1="35" y1="4" x2="35" y2="13"/>
+          <line x1="4" y1="35" x2="13" y2="35"/><line x1="13" y1="44" x2="13" y2="35"/>
+          <line x1="44" y1="35" x2="35" y2="35"/><line x1="35" y1="44" x2="35" y2="35"/>
+        </svg>
+        <div class="wordmark">Mark<span>well</span></div>
+      </div>
+
+      <p class="desc">A screen printing frame — the literal tool used to transfer logos onto products. Precise, technical, and directly tied to the craft.</p>
+      <div class="pros">
+        <div class="pro">Unique — nobody else has this mark</div>
+        <div class="pro">Explains the business visually</div>
+        <div class="pro">Works great at small sizes</div>
+      </div>
+    </div>
+
+    <!-- Concept 5: Seal -->
+    <div class="card winner">
+      <div class="num">05 ★</div>
+      <div class="concept-name">The Seal</div>
+
+      <div class="mark-display">
+        <svg width="96" height="96" viewBox="0 0 48 48" fill="none">
+          <circle cx="24" cy="24" r="20" fill="#E4B84D"/>
+          <circle cx="24" cy="24" r="14" fill="#070709"/>
+          <path d="M16 30 L16 18 L24 25 L32 18 L32 30" stroke="#E4B84D" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+        </svg>
+      </div>
+
+      <div class="full-logo">
+        <svg width="28" height="28" viewBox="0 0 48 48" fill="none">
+          <circle cx="24" cy="24" r="20" fill="#E4B84D"/>
+          <circle cx="24" cy="24" r="14" fill="#07070A"/>
+          <path d="M16 30 L16 18 L24 25 L32 18 L32 30" stroke="#E4B84D" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+        </svg>
+        <div class="wordmark">Mark<span>well</span></div>
+      </div>
+
+      <p class="desc">A seal of quality — like a wax stamp of approval. The M mark inside the ring says "this product has been marked, approved, and done well."</p>
+      <div class="pros">
+        <div class="pro">Most premium-feeling of all options</div>
+        <div class="pro">The ring = quality guarantee</div>
+        <div class="pro">Punchy gold fill reads instantly</div>
+        <div class="pro">Works as favicon, embroidery, everything</div>
+      </div>
+    </div>
+
+    <!-- Concept 6: Diamond -->
+    <div class="card">
+      <div class="num">06</div>
+      <div class="concept-name">The Mark</div>
+
+      <div class="mark-display">
+        <svg width="88" height="88" viewBox="0 0 48 48" fill="none">
+          <path d="M24 4 L44 24 L24 44 L4 24 Z" fill="#E4B84D"/>
+          <path d="M24 14 L34 24 L24 34 L14 24 Z" fill="#070709"/>
+        </svg>
+      </div>
+
+      <div class="full-logo">
+        <svg width="26" height="26" viewBox="0 0 48 48" fill="none">
+          <path d="M24 4 L44 24 L24 44 L4 24 Z" fill="#E4B84D"/>
+          <path d="M24 14 L34 24 L24 34 L14 24 Z" fill="#07070A"/>
+        </svg>
+        <div class="wordmark">Mark<span>well</span></div>
+      </div>
+
+      <p class="desc">A diamond mark — the hollow center is the impression left behind, like a logo pressed into a surface. Clean, bold, extremely versatile.</p>
+      <div class="pros">
+        <div class="pro">Most minimal and scalable</div>
+        <div class="pro">Geometric precision = trust</div>
+        <div class="pro">The hollow = the imprint/mark left behind</div>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- Nav preview with all 3 -->
+  <div class="nav-bar">
+    <div class="nav-logo">
+      <svg width="22" height="22" viewBox="0 0 48 48" fill="none">
+        <circle cx="24" cy="24" r="20" fill="#E4B84D"/>
+        <circle cx="24" cy="24" r="14" fill="#07070A"/>
+        <path d="M16 30 L16 18 L24 25 L32 18 L32 30" stroke="#E4B84D" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+      </svg>
+      <div class="nav-wordmark">Mark<span>well</span></div>
+    </div>
+    <div class="nav-links">
+      <span class="nav-link">Products</span>
+      <span class="nav-link">How It Works</span>
+      <span class="nav-link">Pricing</span>
+      <span class="nav-cta">Get a Quote</span>
+    </div>
+  </div>
+
+  <div style="font-size:11px;color:#4A4A5A;letter-spacing:0.06em;text-align:center;padding-top:16px;">
+    Nav preview shows concept 05 (The Seal) — swap the SVG to preview the others
+  </div>
+
+</body>
+</html>

@@ -1,6 +1,6 @@
 export default function Hero() {
   return (
-    <section className="hero-noise" style={{ paddingTop: 160, paddingBottom: 120, padding: "160px 24px 120px" }}>
+    <section className="hero-noise hero-glow" style={{ paddingTop: 160, paddingBottom: 120, padding: "160px 24px 120px" }}>
       <div style={{ maxWidth: 1120, margin: "0 auto" }}>
 
         {/* Eyebrow */}

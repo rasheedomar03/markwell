@@ -31,6 +31,19 @@ h1, h2, h3, h4, h5, h6 {
 ::selection { background: rgba(228, 184, 77, 0.2); }
 * { box-sizing: border-box; }
 
+/* ── Hero radial glow ───────────────────────────────── */
+.hero-glow::after {
+  content: '';
+  position: absolute;
+  left: -5%;
+  top: 5%;
+  width: 55%;
+  height: 75%;
+  background: radial-gradient(ellipse at 30% 50%, rgba(228,184,77,0.055) 0%, transparent 65%);
+  pointer-events: none;
+  z-index: 0;
+}
+
 /* ── Hero noise texture ─────────────────────────────── */
 .hero-noise { position: relative; }
 .hero-noise::before {

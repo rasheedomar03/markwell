@@ -1,3 +1,6 @@
+"use client";
+import { motion } from "framer-motion";
+
 const tiers = [
   { qty: "50",  unit: "$6.50",  total: "$325",   badge: null },
   { qty: "100", unit: "$4.25",  total: "$425",   badge: "Most Popular" },
@@ -24,14 +27,20 @@ export default function Pricing() {
 
         <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(220px, 1fr))", gap: 2, marginBottom: 48 }}>
           {tiers.map((t) => (
-            <div
+            <motion.div
               key={t.qty}
+              whileHover={{
+                y: -4,
+                boxShadow: "0 16px 48px rgba(228,184,77,0.09)",
+              }}
+              transition={{ type: "spring", stiffness: 400, damping: 28 }}
               style={{
                 position: "relative",
                 background: t.badge === "Most Popular" ? "var(--surface-2)" : "var(--surface)",
                 border: t.badge === "Most Popular" ? "1px solid rgba(228,184,77,0.3)" : "1px solid var(--border)",
                 borderRadius: 2,
                 padding: "40px 32px",
+                cursor: "default",
               }}
             >
               {t.badge && (
@@ -70,7 +79,7 @@ export default function Pricing() {
                   Total: {t.total}
                 </p>
               </div>
-            </div>
+            </motion.div>
           ))}
         </div>
 

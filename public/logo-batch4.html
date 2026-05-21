@@ -1,0 +1,430 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Markwell — 20 New Concepts</title>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet" />
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body { background: #070709; color: #F0F0F5; font-family: 'Inter', sans-serif; padding: 48px 32px; }
+    h1 { font-size: 11px; font-weight: 500; letter-spacing: 0.12em; text-transform: uppercase; color: #8A8A9A; margin-bottom: 40px; }
+    .grid { display: grid; grid-template-columns: repeat(5, 1fr); gap: 3px; }
+    .card { background: #0F0F12; padding: 32px 24px 28px; border: 1px solid rgba(255,255,255,0.06); display: flex; flex-direction: column; align-items: center; }
+    .card:hover { border-color: rgba(228,184,77,0.2); background: #131310; }
+    .num { font-size: 10px; font-weight: 500; letter-spacing: 0.1em; text-transform: uppercase; color: #E4B84D; margin-bottom: 20px; font-family: monospace; align-self: flex-start; }
+    .mark { display: flex; align-items: center; justify-content: center; height: 80px; margin-bottom: 16px; }
+    .name { font-size: 12px; font-weight: 600; color: #F0F0F5; margin-bottom: 6px; align-self: flex-start; }
+    .desc { font-size: 11px; color: #4A4A5A; line-height: 1.5; align-self: flex-start; }
+
+    /* Full logo row */
+    .logos-row { display: grid; grid-template-columns: repeat(5, 1fr); gap: 3px; margin-top: 3px; }
+    .logo-card { background: #0F0F12; padding: 20px 24px; border: 1px solid rgba(255,255,255,0.06); display: flex; align-items: center; gap: 10px; }
+    .wm { font-family: 'Playfair Display', serif; font-size: 15px; font-weight: 700; letter-spacing: -0.02em; color: #F0F0F5; white-space: nowrap; }
+    .wm span { color: #E4B84D; }
+    .logo-num { font-size: 9px; color: #4A4A5A; font-family: monospace; margin-right: 4px; }
+  </style>
+</head>
+<body>
+  <h1>Markwell — 20 New Concepts</h1>
+
+  <div class="grid">
+
+    <!-- 01: Letterpress Block -->
+    <div class="card">
+      <div class="num">01</div>
+      <div class="mark">
+        <svg width="72" height="72" viewBox="0 0 48 48" fill="none">
+          <rect x="4" y="4" width="40" height="40" rx="2" fill="#E4B84D"/>
+          <path d="M11 38 L11 10 L16 10 L24 22 L32 10 L37 10 L37 38 L32 38 L32 17 L24 29 L16 17 L16 38 Z" fill="#070709"/>
+        </svg>
+      </div>
+      <div class="name">Letterpress Block</div>
+      <div class="desc">Gold filled square, dark M pressed in. Like an actual letterpress stamp.</div>
+    </div>
+
+    <!-- 02: Negative Space Cut -->
+    <div class="card">
+      <div class="num">02</div>
+      <div class="mark">
+        <svg width="72" height="72" viewBox="0 0 48 48" fill="none">
+          <rect x="4" y="6" width="40" height="36" rx="3" fill="#E4B84D"/>
+          <path d="M10 36 L10 12 L15.5 12 L24 22 L32.5 12 L38 12 L38 36 L33 36 L33 18.5 L24 27 L15 18.5 L15 36 Z" fill="#070709"/>
+        </svg>
+      </div>
+      <div class="name">Negative Cut</div>
+      <div class="desc">Rectangular gold block with M die-cut. Clean, bold, works on any background.</div>
+    </div>
+
+    <!-- 03: Slash M -->
+    <div class="card">
+      <div class="num">03</div>
+      <div class="mark">
+        <svg width="72" height="72" viewBox="0 0 48 48" fill="none">
+          <path d="M8 40 L8 8 L14 8 L24 22 L34 8 L40 8 L40 40 L34 40 L34 16 L24 29 L14 16 L14 40 Z" fill="#E4B84D"/>
+          <line x1="2" y1="46" x2="46" y2="2" stroke="#E4B84D" stroke-width="2.5" stroke-linecap="round" opacity="0.35"/>
+        </svg>
+      </div>
+      <div class="name">Slash M</div>
+      <div class="desc">M with a single diagonal accent slash. Dynamic, forward-moving energy.</div>
+    </div>
+
+    <!-- 04: Mountain Peaks -->
+    <div class="card">
+      <div class="num">04</div>
+      <div class="mark">
+        <svg width="72" height="72" viewBox="0 0 48 48" fill="none">
+          <path d="M4 38 L16 12 L24 26 L32 12 L44 38 Z" fill="#E4B84D"/>
+          <path d="M16 38 L24 22 L32 38 Z" fill="#070709"/>
+          <line x1="4" y1="42" x2="44" y2="42" stroke="#E4B84D" stroke-width="2" stroke-linecap="round"/>
+        </svg>
+      </div>
+      <div class="name">Summit Mark</div>
+      <div class="desc">M as mountain peaks with baseline. "Mark the summit." Aspirational + memorable.</div>
+    </div>
+
+    <!-- 05: Bracket Frame -->
+    <div class="card">
+      <div class="num">05</div>
+      <div class="mark">
+        <svg width="72" height="72" viewBox="0 0 48 48" fill="none" stroke="#E4B84D" stroke-linecap="round" stroke-linejoin="round">
+          <!-- Left bracket -->
+          <path d="M14 6 L8 6 L8 42 L14 42" stroke-width="2.5" fill="none"/>
+          <!-- Right bracket -->
+          <path d="M34 6 L40 6 L40 42 L34 42" stroke-width="2.5" fill="none"/>
+          <!-- M inside -->
+          <path d="M14 36 L14 12 L24 24 L34 12 L34 36" stroke-width="2.2" fill="none"/>
+        </svg>
+      </div>
+      <div class="name">Bracket M</div>
+      <div class="desc">M in square brackets — like code, or a print registration mark.</div>
+    </div>
+
+    <!-- 06: Stitched M -->
+    <div class="card">
+      <div class="num">06</div>
+      <div class="mark">
+        <svg width="72" height="72" viewBox="0 0 48 48" fill="none">
+          <!-- Stitch dots along M path -->
+          <!-- Left leg up -->
+          <circle cx="10" cy="38" r="1.5" fill="#E4B84D"/>
+          <circle cx="10" cy="32" r="1.5" fill="#E4B84D"/>
+          <circle cx="10" cy="26" r="1.5" fill="#E4B84D"/>
+          <circle cx="10" cy="20" r="1.5" fill="#E4B84D"/>
+          <circle cx="10" cy="14" r="1.5" fill="#E4B84D"/>
+          <!-- Down to V -->
+          <circle cx="14" cy="18" r="1.5" fill="#E4B84D"/>
+          <circle cx="18" cy="22" r="1.5" fill="#E4B84D"/>
+          <circle cx="21" cy="26" r="1.5" fill="#E4B84D"/>
+          <circle cx="24" cy="30" r="1.5" fill="#E4B84D"/>
+          <!-- Up to right -->
+          <circle cx="27" cy="26" r="1.5" fill="#E4B84D"/>
+          <circle cx="30" cy="22" r="1.5" fill="#E4B84D"/>
+          <circle cx="34" cy="18" r="1.5" fill="#E4B84D"/>
+          <circle cx="38" cy="14" r="1.5" fill="#E4B84D"/>
+          <!-- Right leg down -->
+          <circle cx="38" cy="20" r="1.5" fill="#E4B84D"/>
+          <circle cx="38" cy="26" r="1.5" fill="#E4B84D"/>
+          <circle cx="38" cy="32" r="1.5" fill="#E4B84D"/>
+          <circle cx="38" cy="38" r="1.5" fill="#E4B84D"/>
+          <!-- Top horizontals -->
+          <circle cx="16" cy="14" r="1.5" fill="#E4B84D"/>
+          <circle cx="22" cy="14" r="1.5" fill="#E4B84D"/>
+          <circle cx="32" cy="14" r="1.5" fill="#E4B84D"/>
+        </svg>
+      </div>
+      <div class="name">Stitched M</div>
+      <div class="desc">M rendered as embroidery stitches. Directly tied to apparel decoration.</div>
+    </div>
+
+    <!-- 07: Chevron Stack -->
+    <div class="card">
+      <div class="num">07</div>
+      <div class="mark">
+        <svg width="72" height="72" viewBox="0 0 48 48" fill="none">
+          <path d="M6 18 L24 34 L42 18" stroke="#E4B84D" stroke-width="4" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+          <path d="M6 30 L24 46 L42 30" stroke="#E4B84D" stroke-width="4" stroke-linecap="round" stroke-linejoin="round" fill="none" opacity="0.4"/>
+          <path d="M6 8 L24 24 L42 8" stroke="#E4B84D" stroke-width="4" stroke-linecap="round" stroke-linejoin="round" fill="none" opacity="0.7"/>
+        </svg>
+      </div>
+      <div class="name">Chevron Stack</div>
+      <div class="desc">3 stacked chevrons forming M-like peaks. Layered, bold, military precision.</div>
+    </div>
+
+    <!-- 08: Brand Iron -->
+    <div class="card">
+      <div class="num">08</div>
+      <div class="mark">
+        <svg width="72" height="72" viewBox="0 0 48 48" fill="none" stroke="#E4B84D" stroke-linecap="round" stroke-linejoin="round">
+          <!-- Iron handle -->
+          <line x1="24" y1="6" x2="24" y2="16" stroke-width="2.5"/>
+          <line x1="18" y1="16" x2="30" y2="16" stroke-width="2"/>
+          <!-- Block stamp -->
+          <rect x="8" y="16" width="32" height="26" rx="2" stroke-width="2" fill="rgba(228,184,77,0.06)"/>
+          <!-- M inside stamp -->
+          <path d="M14 36 L14 22 L24 31 L34 22 L34 36" stroke-width="2.2" fill="none"/>
+        </svg>
+      </div>
+      <div class="name">Brand Iron</div>
+      <div class="desc">Cattle brand / stamp tool. Branding = leaving your mark. Literal and conceptual.</div>
+    </div>
+
+    <!-- 09: Wax Seal Hexagon -->
+    <div class="card">
+      <div class="num">09</div>
+      <div class="mark">
+        <svg width="72" height="72" viewBox="0 0 48 48" fill="none">
+          <polygon points="24,4 41,13.5 41,34.5 24,44 7,34.5 7,13.5" fill="#E4B84D"/>
+          <polygon points="24,11 36,17.8 36,31.2 24,38 12,31.2 12,17.8" fill="#070709"/>
+          <path d="M17 32 L17 16 L24 23 L31 16 L31 32" stroke="#E4B84D" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+        </svg>
+      </div>
+      <div class="name">Hex Seal</div>
+      <div class="desc">Hexagon wax seal with M. Honey-cell structure = precision, industry, quality.</div>
+    </div>
+
+    <!-- 10: Registration Target -->
+    <div class="card">
+      <div class="num">10</div>
+      <div class="mark">
+        <svg width="72" height="72" viewBox="0 0 48 48" fill="none" stroke="#E4B84D" stroke-linecap="round">
+          <!-- Outer circle -->
+          <circle cx="24" cy="24" r="20" stroke-width="1.5"/>
+          <!-- Cross hairs -->
+          <line x1="24" y1="4" x2="24" y2="10" stroke-width="1.5"/>
+          <line x1="24" y1="38" x2="24" y2="44" stroke-width="1.5"/>
+          <line x1="4" y1="24" x2="10" y2="24" stroke-width="1.5"/>
+          <line x1="38" y1="24" x2="44" y2="24" stroke-width="1.5"/>
+          <!-- Inner circle with M -->
+          <circle cx="24" cy="24" r="10" stroke-width="1.5"/>
+          <path d="M18 30 L18 18 L24 24 L30 18 L30 30" stroke-width="2" fill="none"/>
+        </svg>
+      </div>
+      <div class="name">Registration Mark</div>
+      <div class="desc">Print registration target. Dead-center precision. Designers will get this immediately.</div>
+    </div>
+
+    <!-- 11: Imprint / Press Emboss -->
+    <div class="card">
+      <div class="num">11</div>
+      <div class="mark">
+        <svg width="72" height="72" viewBox="0 0 48 48" fill="none">
+          <!-- Shadow/depth layer -->
+          <path d="M10 40 L10 12 L15 12 L24 24 L33 12 L38 12 L38 40 L33 40 L33 17 L24 28 L15 17 L15 40 Z" fill="rgba(228,184,77,0.15)" transform="translate(2,2)"/>
+          <!-- Main M -->
+          <path d="M10 40 L10 12 L15 12 L24 24 L33 12 L38 12 L38 40 L33 40 L33 17 L24 28 L15 17 L15 40 Z" fill="#E4B84D"/>
+        </svg>
+      </div>
+      <div class="name">Raised Imprint</div>
+      <div class="desc">Solid M with drop shadow depth — looks pressed, embossed, raised off the surface.</div>
+    </div>
+
+    <!-- 12: M in Circle Outline Only -->
+    <div class="card">
+      <div class="num">12</div>
+      <div class="mark">
+        <svg width="72" height="72" viewBox="0 0 48 48" fill="none" stroke="#E4B84D" stroke-linecap="round" stroke-linejoin="round">
+          <circle cx="24" cy="24" r="20" stroke-width="1.8"/>
+          <path d="M13 33 L13 15 L24 26 L35 15 L35 33" stroke-width="2.5" fill="none"/>
+        </svg>
+      </div>
+      <div class="name">Ring Outline</div>
+      <div class="desc">Pure line — circle + M stroke only, nothing filled. Ultra-minimal, versatile.</div>
+    </div>
+
+    <!-- 13: Shield -->
+    <div class="card">
+      <div class="num">13</div>
+      <div class="mark">
+        <svg width="72" height="72" viewBox="0 0 48 48" fill="none">
+          <path d="M24 4 L40 10 L40 28 C40 36 32 42 24 46 C16 42 8 36 8 28 L8 10 Z" fill="#E4B84D"/>
+          <path d="M15 36 L15 14 L24 24 L33 14 L33 36 L28.5 36 L28.5 20 L24 24.5 L19.5 20 L19.5 36 Z" fill="#070709"/>
+        </svg>
+      </div>
+      <div class="name">Shield Mark</div>
+      <div class="desc">Shield = protection, quality, guarantee. "We stand behind every mark."</div>
+    </div>
+
+    <!-- 14: Ink Drop M -->
+    <div class="card">
+      <div class="num">14</div>
+      <div class="mark">
+        <svg width="72" height="72" viewBox="0 0 48 48" fill="none">
+          <!-- Ink drop shape -->
+          <path d="M24 4 C20 12 6 22 6 32 C6 41 14.3 46 24 46 C33.7 46 42 41 42 32 C42 22 28 12 24 4 Z" fill="#E4B84D"/>
+          <!-- M cut out of the drop -->
+          <path d="M13 38 L13 22 L17 22 L24 29 L31 22 L35 22 L35 38 L31 38 L31 25 L24 31 L17 25 L17 38 Z" fill="#070709"/>
+        </svg>
+      </div>
+      <div class="name">Ink Drop M</div>
+      <div class="desc">M carved into the ink drop. Ink = printing, M = your mark. Two ideas, one shape.</div>
+    </div>
+
+    <!-- 15: Monogram MW -->
+    <div class="card">
+      <div class="num">15</div>
+      <div class="mark">
+        <svg width="72" height="72" viewBox="0 0 48 48" fill="none">
+          <!-- M -->
+          <path d="M3 38 L3 10 L9 10 L17 20 L17 10 L23 10 L23 38 L17 38 L17 22 L9 30 L3 38 Z" fill="#E4B84D" opacity="0.9"/>
+          <!-- W overlapping -->
+          <path d="M25 10 L31 10 L34 30 L37 18 L40 18 L43 30 L46 10 L52 10 L47 38 L42 38 L38.5 26 L35 38 L30 38 Z" fill="#E4B84D" transform="translate(-4, 0) scale(0.88, 1)" opacity="0.9"/>
+        </svg>
+      </div>
+      <div class="name">MW Monogram</div>
+      <div class="desc">M and W interlocked. Markwell as initials. Sophisticated, jeweler-grade mark.</div>
+    </div>
+
+    <!-- 16: Crop Marks Square -->
+    <div class="card">
+      <div class="num">16</div>
+      <div class="mark">
+        <svg width="72" height="72" viewBox="0 0 48 48" fill="none" stroke="#E4B84D" stroke-linecap="round">
+          <!-- Crop marks at corners -->
+          <line x1="4" y1="14" x2="12" y2="14" stroke-width="1.8"/>
+          <line x1="14" y1="4" x2="14" y2="12" stroke-width="1.8"/>
+          <line x1="44" y1="14" x2="36" y2="14" stroke-width="1.8"/>
+          <line x1="34" y1="4" x2="34" y2="12" stroke-width="1.8"/>
+          <line x1="4" y1="34" x2="12" y2="34" stroke-width="1.8"/>
+          <line x1="14" y1="44" x2="14" y2="36" stroke-width="1.8"/>
+          <line x1="44" y1="34" x2="36" y2="34" stroke-width="1.8"/>
+          <line x1="34" y1="44" x2="34" y2="36" stroke-width="1.8"/>
+          <!-- M in center, gold filled -->
+          <path d="M16 34 L16 14 L24 23 L32 14 L32 34" stroke-width="2.5" fill="none" stroke-linejoin="round"/>
+        </svg>
+      </div>
+      <div class="name">Crop Mark M</div>
+      <div class="desc">Print crop marks frame the M. Maximum print-industry credibility.</div>
+    </div>
+
+    <!-- 17: Pill Badge -->
+    <div class="card">
+      <div class="num">17</div>
+      <div class="mark">
+        <svg width="88" height="72" viewBox="0 0 64 48" fill="none">
+          <rect x="2" y="8" width="60" height="32" rx="16" fill="#E4B84D"/>
+          <path d="M18 34 L18 14 L24 14 L32 24 L40 14 L46 14 L46 34 L41 34 L41 20 L32 29 L23 20 L23 34 Z" fill="#070709"/>
+        </svg>
+      </div>
+      <div class="name">Pill Badge</div>
+      <div class="desc">Rounded rectangle — like a clothing label or product tag badge. Modern, apparel-native.</div>
+    </div>
+
+    <!-- 18: Signal Bars M -->
+    <div class="card">
+      <div class="num">18</div>
+      <div class="mark">
+        <svg width="72" height="72" viewBox="0 0 48 48" fill="none">
+          <!-- Signal bars that form M shape -->
+          <rect x="5" y="10" width="7" height="32" rx="1.5" fill="#E4B84D"/>
+          <rect x="15" y="18" width="7" height="24" rx="1.5" fill="#E4B84D" opacity="0.8"/>
+          <rect x="25" y="26" width="7" height="16" rx="1.5" fill="#E4B84D" opacity="0.55"/>
+          <rect x="35" y="18" width="7" height="24" rx="1.5" fill="#E4B84D" opacity="0.8"/>
+          <!-- Top cap -->
+          <rect x="5" y="6" width="37" height="5" rx="1.5" fill="rgba(228,184,77,0.2)"/>
+        </svg>
+      </div>
+      <div class="name">Signal Bars</div>
+      <div class="desc">Bar chart / signal strength in M-form. "Broadcasting your brand." Unique shape.</div>
+    </div>
+
+    <!-- 19: Arch Label -->
+    <div class="card">
+      <div class="num">19</div>
+      <div class="mark">
+        <svg width="72" height="72" viewBox="0 0 48 48" fill="none">
+          <!-- Arch label shape -->
+          <path d="M4 44 L4 24 C4 12 10 6 24 6 C38 6 44 12 44 24 L44 44 Z" fill="#E4B84D"/>
+          <!-- M -->
+          <path d="M12 40 L12 20 L18 20 L24 28 L30 20 L36 20 L36 40 L31 40 L31 24 L24 31 L17 24 L17 40 Z" fill="#070709"/>
+        </svg>
+      </div>
+      <div class="name">Arch Label</div>
+      <div class="desc">Arch-top label — like a vintage shop sign or apothecary jar label. Premium heritage feel.</div>
+    </div>
+
+    <!-- 20: Double Ring Coin -->
+    <div class="card">
+      <div class="num">20</div>
+      <div class="mark">
+        <svg width="72" height="72" viewBox="0 0 48 48" fill="none">
+          <!-- Outer ring -->
+          <circle cx="24" cy="24" r="21" fill="#E4B84D"/>
+          <!-- Gap -->
+          <circle cx="24" cy="24" r="18" fill="#070709"/>
+          <!-- Inner ring fill -->
+          <circle cx="24" cy="24" r="15" fill="#E4B84D" opacity="0.12"/>
+          <!-- Second ring -->
+          <circle cx="24" cy="24" r="15" fill="none" stroke="#E4B84D" stroke-width="1"/>
+          <!-- M -->
+          <path d="M15 31 L15 17 L24 25 L33 17 L33 31" stroke="#E4B84D" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+        </svg>
+      </div>
+      <div class="name">Double Ring Coin</div>
+      <div class="desc">Coin/medallion with double ring. Museum-quality collectible feel. Rare, premium, official.</div>
+    </div>
+
+  </div>
+
+  <!-- Full logo lockups for top picks -->
+  <div style="font-size:11px;letter-spacing:0.1em;text-transform:uppercase;color:#4A4A5A;margin:40px 0 16px;font-family:monospace;">Full lockup preview — all 20</div>
+  <div class="logos-row">
+
+    <div class="logo-card">
+      <svg width="22" height="22" viewBox="0 0 48 48" fill="none"><rect x="4" y="4" width="40" height="40" rx="2" fill="#E4B84D"/><path d="M11 38 L11 10 L16 10 L24 22 L32 10 L37 10 L37 38 L32 38 L32 17 L24 29 L16 17 L16 38 Z" fill="#070709"/></svg>
+      <div class="wm"><span class="logo-num">01</span>Mark<span>well</span></div>
+    </div>
+
+    <div class="logo-card">
+      <svg width="24" height="20" viewBox="0 0 48 38" fill="none"><rect x="4" y="2" width="40" height="34" rx="3" fill="#E4B84D"/><path d="M10 32 L10 8 L15.5 8 L24 18 L32.5 8 L38 8 L38 32 L33 32 L33 14.5 L24 23 L15 14.5 L15 32 Z" fill="#070709"/></svg>
+      <div class="wm"><span class="logo-num">02</span>Mark<span>well</span></div>
+    </div>
+
+    <div class="logo-card">
+      <svg width="22" height="22" viewBox="0 0 48 48" fill="none"><path d="M4 38 L16 12 L24 26 L32 12 L44 38 Z" fill="#E4B84D"/><path d="M16 38 L24 22 L32 38 Z" fill="#070709"/><line x1="4" y1="42" x2="44" y2="42" stroke="#E4B84D" stroke-width="2"/></svg>
+      <div class="wm"><span class="logo-num">04</span>Mark<span>well</span></div>
+    </div>
+
+    <div class="logo-card">
+      <svg width="20" height="22" viewBox="0 0 48 48" fill="none" stroke="#E4B84D" stroke-linecap="round" stroke-linejoin="round"><path d="M14 6 L8 6 L8 42 L14 42" stroke-width="2.5" fill="none"/><path d="M34 6 L40 6 L40 42 L34 42" stroke-width="2.5" fill="none"/><path d="M14 36 L14 12 L24 24 L34 12 L34 36" stroke-width="2.2" fill="none"/></svg>
+      <div class="wm"><span class="logo-num">05</span>Mark<span>well</span></div>
+    </div>
+
+    <div class="logo-card">
+      <svg width="22" height="22" viewBox="0 0 48 48" fill="none"><polygon points="24,4 41,13.5 41,34.5 24,44 7,34.5 7,13.5" fill="#E4B84D"/><polygon points="24,11 36,17.8 36,31.2 24,38 12,31.2 12,17.8" fill="#070709"/><path d="M17 32 L17 16 L24 23 L31 16 L31 32" stroke="#E4B84D" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" fill="none"/></svg>
+      <div class="wm"><span class="logo-num">09</span>Mark<span>well</span></div>
+    </div>
+
+    <div class="logo-card">
+      <svg width="22" height="22" viewBox="0 0 48 48" fill="none" stroke="#E4B84D" stroke-linecap="round"><circle cx="24" cy="24" r="20" stroke-width="1.8"/><circle cx="24" cy="24" r="10" stroke-width="1.5"/><line x1="24" y1="4" x2="24" y2="10" stroke-width="1.5"/><line x1="24" y1="38" x2="24" y2="44" stroke-width="1.5"/><line x1="4" y1="24" x2="10" y2="24" stroke-width="1.5"/><line x1="38" y1="24" x2="44" y2="24" stroke-width="1.5"/><path d="M18 30 L18 18 L24 24 L30 18 L30 30" stroke-width="2" fill="none"/></svg>
+      <div class="wm"><span class="logo-num">10</span>Mark<span>well</span></div>
+    </div>
+
+    <div class="logo-card">
+      <svg width="22" height="22" viewBox="0 0 48 48" fill="none"><path d="M24 4 L40 10 L40 28 C40 36 32 42 24 46 C16 42 8 36 8 28 L8 10 Z" fill="#E4B84D"/><path d="M15 36 L15 14 L24 24 L33 14 L33 36 L28.5 36 L28.5 20 L24 24.5 L19.5 20 L19.5 36 Z" fill="#070709"/></svg>
+      <div class="wm"><span class="logo-num">13</span>Mark<span>well</span></div>
+    </div>
+
+    <div class="logo-card">
+      <svg width="18" height="22" viewBox="0 0 48 48" fill="none"><path d="M24 4 C20 12 6 22 6 32 C6 41 14.3 46 24 46 C33.7 46 42 41 42 32 C42 22 28 12 24 4 Z" fill="#E4B84D"/><path d="M13 38 L13 22 L17 22 L24 29 L31 22 L35 22 L35 38 L31 38 L31 25 L24 31 L17 25 L17 38 Z" fill="#070709"/></svg>
+      <div class="wm"><span class="logo-num">14</span>Mark<span>well</span></div>
+    </div>
+
+    <div class="logo-card">
+      <svg width="26" height="20" viewBox="0 0 64 48" fill="none"><rect x="2" y="8" width="60" height="32" rx="16" fill="#E4B84D"/><path d="M18 34 L18 14 L24 14 L32 24 L40 14 L46 14 L46 34 L41 34 L41 20 L32 29 L23 20 L23 34 Z" fill="#070709"/></svg>
+      <div class="wm"><span class="logo-num">17</span>Mark<span>well</span></div>
+    </div>
+
+    <div class="logo-card">
+      <svg width="22" height="22" viewBox="0 0 48 48" fill="none"><circle cx="24" cy="24" r="21" fill="#E4B84D"/><circle cx="24" cy="24" r="18" fill="#070709"/><circle cx="24" cy="24" r="15" fill="none" stroke="#E4B84D" stroke-width="1"/><path d="M15 31 L15 17 L24 25 L33 17 L33 31" stroke="#E4B84D" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" fill="none"/></svg>
+      <div class="wm"><span class="logo-num">20</span>Mark<span>well</span></div>
+    </div>
+
+  </div>
+
+  <div style="font-size:11px;color:#4A4A5A;letter-spacing:0.06em;text-align:center;padding-top:24px;">
+    20 concepts — view at localhost:3000/logo-batch4.html
+  </div>
+
+</body>
+</html>
