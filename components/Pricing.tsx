@@ -2,10 +2,10 @@
 import { motion } from "framer-motion";
 
 const tiers = [
-  { qty: "50",  unit: "$6.50",  total: "$325",   badge: null },
-  { qty: "100", unit: "$4.25",  total: "$425",   badge: "Most Popular" },
-  { qty: "300", unit: "$3.50",  total: "$1,050", badge: null },
-  { qty: "500", unit: "$3.00",  total: "$1,500", badge: "Best Value" },
+  { qty: "24",  unit: "$5.99",  total: "$144",   badge: null },
+  { qty: "96",  unit: "$4.49",  total: "$431",   badge: "Most Popular" },
+  { qty: "288", unit: "$3.69",  total: "$1,063", badge: null },
+  { qty: "576", unit: "$3.49",  total: "$2,010", badge: "Best Value" },
 ];
 
 export default function Pricing() {
