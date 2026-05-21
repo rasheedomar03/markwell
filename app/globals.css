@@ -106,6 +106,7 @@ h1, h2, h3, h4, h5, h6 {
 }
 @media (max-width: 760px) {
   .products-grid { grid-template-columns: 1fr; }
+  .products-grid > * { grid-column: span 1 !important; grid-row: span 1 !important; min-height: auto !important; }
 }
 
 /* ── Trust strip ─────────────────────────────────────── */
@@ -131,6 +132,23 @@ h1, h2, h3, h4, h5, h6 {
 @media (max-width: 760px) {
   .why-us-grid { grid-template-columns: 1fr; gap: 48px; }
   .why-us-sticky { position: static !important; }
+}
+
+/* ── Nav mobile ──────────────────────────────────────── */
+@media (max-width: 768px) {
+  .nav-desktop { display: none !important; }
+  .nav-mobile-toggle { display: block !important; }
+}
+
+/* ── Contact responsive ─────────────────────────────── */
+.contact-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 96px;
+  align-items: start;
+}
+@media (max-width: 760px) {
+  .contact-grid { grid-template-columns: 1fr; gap: 48px; }
 }
 
 /* ── HowItWorks step item ────────────────────────────── */

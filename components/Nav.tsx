@@ -3,9 +3,12 @@ import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import Logo from "./Logo";
 
+const links = ["Products", "How It Works", "Pricing"];
+
 export default function Nav() {
   const [scrolled, setScrolled] = useState(false);
   const [hoveredLink, setHoveredLink] = useState<string | null>(null);
+  const [mobileOpen, setMobileOpen] = useState(false);
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 24);
@@ -13,23 +16,31 @@ export default function Nav() {
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
 
+  // Close mobile menu on resize to desktop
+  useEffect(() => {
+    const onResize = () => { if (window.innerWidth > 768) setMobileOpen(false); };
+    window.addEventListener("resize", onResize);
+    return () => window.removeEventListener("resize", onResize);
+  }, []);
+
   return (
     <nav
       style={{
         position: "fixed", top: 0, left: 0, right: 0, zIndex: 50,
-        borderBottom: scrolled ? "1px solid rgba(255,255,255,0.06)" : "1px solid transparent",
-        background: scrolled ? "rgba(7,7,9,0.92)" : "transparent",
-        backdropFilter: scrolled ? "blur(12px)" : "none",
+        borderBottom: scrolled || mobileOpen ? "1px solid rgba(255,255,255,0.06)" : "1px solid transparent",
+        background: scrolled || mobileOpen ? "rgba(7,7,9,0.92)" : "transparent",
+        backdropFilter: scrolled || mobileOpen ? "blur(12px)" : "none",
         transition: "all 0.2s ease",
       }}
     >
-      <div style={{ maxWidth: 1120, margin: "0 auto", padding: "0 32px 0 8px", height: 80, display: "flex", alignItems: "center", justifyContent: "space-between" }}>
+      <div style={{ maxWidth: 1120, margin: "0 auto", padding: "0 24px", height: 72, display: "flex", alignItems: "center", justifyContent: "space-between" }}>
         <a href="#" style={{ textDecoration: "none" }}>
           <Logo variant="full" size="sm" />
         </a>
 
-        <div style={{ display: "flex", alignItems: "center", gap: 32 }}>
-          {["Products", "How It Works", "Pricing"].map((l) => (
+        {/* Desktop nav */}
+        <div className="nav-desktop" style={{ display: "flex", alignItems: "center", gap: 32 }}>
+          {links.map((l) => (
             <a
               key={l}
               href={`#${l.toLowerCase().replace(/\s+/g, "-")}`}
@@ -54,13 +65,8 @@ export default function Nav() {
                     exit={{ opacity: 0 }}
                     transition={{ duration: 0.15 }}
                     style={{
-                      position: "absolute",
-                      bottom: 0,
-                      left: 0,
-                      right: 0,
-                      height: 1,
-                      background: "var(--gold)",
-                      opacity: 0.7,
+                      position: "absolute", bottom: 0, left: 0, right: 0,
+                      height: 1, background: "var(--gold)", opacity: 0.7,
                     }}
                   />
                 )}
@@ -82,7 +88,78 @@ export default function Nav() {
             Get a Quote
           </motion.a>
         </div>
+
+        {/* Mobile hamburger */}
+        <button
+          className="nav-mobile-toggle"
+          onClick={() => setMobileOpen(!mobileOpen)}
+          aria-label={mobileOpen ? "Close menu" : "Open menu"}
+          style={{
+            display: "none", background: "none", border: "none", cursor: "pointer",
+            padding: 8, color: "var(--text)",
+          }}
+        >
+          <svg width="22" height="22" viewBox="0 0 22 22" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round">
+            {mobileOpen ? (
+              <>
+                <line x1="5" y1="5" x2="17" y2="17" />
+                <line x1="17" y1="5" x2="5" y2="17" />
+              </>
+            ) : (
+              <>
+                <line x1="3" y1="6" x2="19" y2="6" />
+                <line x1="3" y1="11" x2="19" y2="11" />
+                <line x1="3" y1="16" x2="19" y2="16" />
+              </>
+            )}
+          </svg>
+        </button>
       </div>
+
+      {/* Mobile dropdown */}
+      <AnimatePresence>
+        {mobileOpen && (
+          <motion.div
+            className="nav-mobile-menu"
+            initial={{ opacity: 0, height: 0 }}
+            animate={{ opacity: 1, height: "auto" }}
+            exit={{ opacity: 0, height: 0 }}
+            transition={{ duration: 0.2 }}
+            style={{
+              overflow: "hidden",
+              borderTop: "1px solid var(--border)",
+              background: "rgba(7,7,9,0.98)",
+            }}
+          >
+            <div style={{ padding: "16px 24px 24px", display: "flex", flexDirection: "column", gap: 4 }}>
+              {links.map((l) => (
+                <a
+                  key={l}
+                  href={`#${l.toLowerCase().replace(/\s+/g, "-")}`}
+                  onClick={() => setMobileOpen(false)}
+                  style={{
+                    color: "var(--text-secondary)", fontSize: 16, textDecoration: "none",
+                    padding: "12px 0", borderBottom: "1px solid var(--border)",
+                  }}
+                >
+                  {l}
+                </a>
+              ))}
+              <a
+                href="#contact"
+                onClick={() => setMobileOpen(false)}
+                style={{
+                  background: "var(--gold)", color: "#07070A", fontSize: 15, fontWeight: 600,
+                  padding: "14px 24px", borderRadius: 10, textDecoration: "none",
+                  display: "block", textAlign: "center", marginTop: 12,
+                }}
+              >
+                Get a Quote
+              </a>
+            </div>
+          </motion.div>
+        )}
+      </AnimatePresence>
     </nav>
   );
 }

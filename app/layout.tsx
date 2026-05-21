@@ -22,6 +22,18 @@ const geistMono = Geist_Mono({
 export const metadata: Metadata = {
   title: "Wearmill — Custom Printed Products for Your Business",
   description: "Custom apparel, hats, drinkware, and branded merch — screen printed and embroidered. Better quality and pricing than you're paying now.",
+  metadataBase: new URL("https://markwell.vercel.app"),
+  openGraph: {
+    title: "Wearmill — Custom Printed Products for Your Business",
+    description: "Custom apparel, hats, drinkware, and branded merch — screen printed and embroidered. Better quality and pricing.",
+    siteName: "Wearmill",
+    type: "website",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Wearmill — Custom Printed Products",
+    description: "Screen printing, embroidery, branded merch. Better quality, better pricing.",
+  },
 };
 
 export default function RootLayout({
