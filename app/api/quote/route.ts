@@ -3,13 +3,13 @@ import { NextResponse } from "next/server";
 
 export async function POST(req: Request) {
   const resend = new Resend(process.env.RESEND_API_KEY);
-  const { name, business, email, message } = await req.json();
+  const { name, business, email, message, attachmentName, attachmentData } = await req.json();
 
   if (!name || !email || !message) {
     return NextResponse.json({ error: "Missing required fields." }, { status: 400 });
   }
 
-  const { error } = await resend.emails.send({
+  const emailPayload: Parameters<typeof resend.emails.send>[0] = {
     from: "Wearmill Quote Form <onboarding@resend.dev>",
     to: ["rasheed.omar@outlook.com"],
     replyTo: email,
@@ -42,7 +42,18 @@ export async function POST(req: Request) {
         </p>
       </div>
     `,
-  });
+  };
+
+  if (attachmentName && attachmentData) {
+    emailPayload.attachments = [
+      {
+        filename: attachmentName,
+        content: Buffer.from(attachmentData, "base64"),
+      },
+    ];
+  }
+
+  const { error } = await resend.emails.send(emailPayload);
 
   if (error) {
     return NextResponse.json({ error: "Failed to send. Please try again." }, { status: 500 });
