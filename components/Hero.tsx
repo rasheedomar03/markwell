@@ -10,9 +10,9 @@ function fadeUp(delay: number) {
 }
 
 const lineItems = [
-  { item: "T-Shirts · Screen Print", qty: "144 units", price: "$574.56", detail: "1-color imprint, front chest" },
-  { item: "Hats · Embroidery",       qty: "48 units",  price: "$407.52", detail: "Custom thread color" },
-  { item: "Tote Bags",               qty: "96 units",  price: "$575.04", detail: "Silk-screen, 1 side" },
+  { item: "T-Shirts · Screen Print", qty: "144 units", price: "$1,150.56", detail: "1-color imprint, front chest" },
+  { item: "Hats · Embroidery",       qty: "48 units",  price: "$672.00", detail: "Custom thread color" },
+  { item: "Tote Bags",               qty: "96 units",  price: "$863.04", detail: "Silk-screen, 1 side" },
 ];
 
 export default function Hero() {
@@ -71,7 +71,7 @@ export default function Hero() {
           >
             {[
               { num: "100+", label: "Products available" },
-              { num: "$3.49", label: "Shirts from / unit" },
+              { num: "$6.49", label: "Shirts from / unit" },
               { num: "Fast",  label: "Turnaround" },
               { num: "$0",    label: "Setup fees" },
             ].map(s => (
