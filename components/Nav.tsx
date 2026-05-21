@@ -21,7 +21,7 @@ export default function Nav() {
         transition: "all 0.2s ease",
       }}
     >
-      <div style={{ maxWidth: 1120, margin: "0 auto", padding: "0 32px", height: 80, display: "flex", alignItems: "center", justifyContent: "space-between" }}>
+      <div style={{ maxWidth: 1120, margin: "0 auto", padding: "0 32px 0 8px", height: 80, display: "flex", alignItems: "center", justifyContent: "space-between" }}>
         {/* Logo */}
         <a href="#" style={{ textDecoration: "none" }}>
           <Logo variant="full" size="sm" />

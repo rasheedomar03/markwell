@@ -5,7 +5,7 @@ interface LogoProps {
 }
 
 const sizes = {
-  sm: { fontSize: 11 },
+  sm: { fontSize: 16 },
   md: { fontSize: 14 },
   lg: { fontSize: 19 },
 };
