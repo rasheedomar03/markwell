@@ -78,3 +78,47 @@ h1, h2, h3, h4, h5, h6 {
   .fade-up { opacity: 1; transform: none; transition: none; }
   .marquee-track { animation-play-state: paused; }
 }
+
+/* ── Pulse for eyebrow dot ───────────────────────────── */
+@keyframes pulse-dot {
+  0%, 100% { opacity: 1; transform: scale(1); }
+  50% { opacity: 0.45; transform: scale(0.85); }
+}
+.pulse-dot { animation: pulse-dot 2.4s ease-in-out infinite; }
+
+/* ── Hero split layout ───────────────────────────────── */
+.hero-grid {
+  display: grid;
+  grid-template-columns: 1fr 460px;
+  gap: 64px;
+  align-items: center;
+}
+@media (max-width: 960px) {
+  .hero-grid { grid-template-columns: 1fr; }
+  .hero-order-card { display: none; }
+}
+
+/* ── Products asymmetric grid ────────────────────────── */
+.products-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2px;
+}
+@media (max-width: 760px) {
+  .products-grid { grid-template-columns: 1fr; }
+}
+
+/* ── HowItWorks step item ────────────────────────────── */
+.step-item {
+  display: grid;
+  grid-template-columns: 96px 1px 1fr;
+  gap: 0 48px;
+}
+@media (max-width: 640px) {
+  .step-item {
+    grid-template-columns: 1fr;
+    gap: 12px;
+  }
+  .step-timeline-col { display: none; }
+  .step-num { text-align: left; }
+}
