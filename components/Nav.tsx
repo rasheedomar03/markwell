@@ -3,7 +3,7 @@ import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import Logo from "./Logo";
 
-const links = ["Products", "How It Works", "Pricing"];
+const links = ["Products", "How It Works", "Pricing", "FAQ"];
 
 export default function Nav() {
   const [scrolled, setScrolled] = useState(false);

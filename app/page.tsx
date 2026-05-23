@@ -6,6 +6,7 @@ import Products from "@/components/Products";
 import WhyUs from "@/components/WhyUs";
 import HowItWorks from "@/components/HowItWorks";
 import Pricing from "@/components/Pricing";
+import FAQ from "@/components/FAQ";
 import Contact from "@/components/Contact";
 import Footer from "@/components/Footer";
 import FadeIn from "@/components/FadeIn";
@@ -25,6 +26,8 @@ export default function Home() {
       <FadeIn><HowItWorks /></FadeIn>
       <GoldDivider />
       <FadeIn><Pricing /></FadeIn>
+      <GoldDivider />
+      <FadeIn><FAQ /></FadeIn>
       <GoldDivider />
       <FadeIn><Contact /></FadeIn>
       <Footer />
