@@ -1,4 +1,9 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32">
   <rect width="32" height="32" rx="6" fill="#070709"/>
-  <text x="16" y="22" text-anchor="middle" font-family="Georgia, serif" font-weight="700" font-size="16" fill="#E4B84D">WM</text>
+  <!-- W -->
+  <path d="M5 9 L8 23 L11.5 14 L15 23 L18 9" fill="none" stroke="#E4B84D" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/>
+  <!-- | divider -->
+  <line x1="20" y1="9" x2="20" y2="23" stroke="#E4B84D" stroke-width="1" opacity="0.5"/>
+  <!-- M -->
+  <path d="M22 23 L22 9 L25.5 18 L29 9 L29 23" fill="none" stroke="#E4B84D" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/>
 </svg>
