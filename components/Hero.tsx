@@ -36,15 +36,15 @@ export default function Hero() {
             {...fadeUp(0.1)}
             style={{ fontSize: "clamp(44px, 6vw, 80px)", fontWeight: 700, lineHeight: 1.05, letterSpacing: "-0.04em", color: "var(--text)", marginBottom: 28 }}
           >
-            Your brand,<br />
-            <span style={{ color: "var(--gold)" }}>on everything.</span>
+            Custom merch,<br />
+            <span style={{ color: "var(--gold)" }}>printed fast.</span>
           </motion.h1>
 
           <motion.p
             {...fadeUp(0.2)}
             style={{ fontSize: 18, lineHeight: 1.7, color: "var(--text-secondary)", maxWidth: 480, marginBottom: 48 }}
           >
-            Custom apparel, hats, drinkware, and branded merch — screen printed and embroidered. Better quality, better pricing than you&apos;re paying now.
+            Screen printed shirts from $6.49/unit. Embroidered hats, tote bags, drinkware, and more. Quote back in 24 hours, ships in a week.
           </motion.p>
 
           <motion.div {...fadeUp(0.3)} style={{ display: "flex", gap: 12, flexWrap: "wrap", marginBottom: 72 }}>
@@ -72,8 +72,8 @@ export default function Hero() {
             {[
               { num: "100+", label: "Products available" },
               { num: "$6.49", label: "Shirts from / unit" },
-              { num: "Fast",  label: "Turnaround" },
-              { num: "$0",    label: "Setup fees" },
+              { num: "5–7",   label: "Day turnaround" },
+              { num: "Free",  label: "Setup at 96+ units" },
             ].map(s => (
               <div key={s.label}>
                 <div style={{ fontSize: 26, fontWeight: 700, color: "var(--text)", letterSpacing: "-0.03em", marginBottom: 4 }}>{s.num}</div>
@@ -136,7 +136,7 @@ export default function Hero() {
             </div>
             <div style={{ display: "flex", justifyContent: "space-between", marginBottom: 20 }}>
               <span style={{ fontSize: 12, color: "var(--text-muted)" }}>Setup fee</span>
-              <span style={{ fontSize: 12, color: "var(--gold)" }}>$0.00</span>
+              <span style={{ fontSize: 12, color: "var(--gold)" }}>Waived</span>
             </div>
             <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", paddingTop: 16, borderTop: "1px solid var(--border)" }}>
               <span style={{ fontSize: 15, fontWeight: 700, color: "var(--text)" }}>Total</span>
@@ -150,7 +150,7 @@ export default function Hero() {
               <circle cx="7" cy="7" r="6" stroke="var(--gold)" strokeWidth="1.5"/>
               <path d="M4 7l2 2 4-4" stroke="var(--gold)" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
             </svg>
-            <span style={{ fontSize: 12, color: "var(--text-muted)", fontFamily: "var(--font-geist-mono)" }}>No setup fees. Ships in 5–7 business days.</span>
+            <span style={{ fontSize: 12, color: "var(--text-muted)", fontFamily: "var(--font-geist-mono)" }}>Setup fees waived at 96+ units. Ships in 5–7 business days.</span>
           </div>
         </motion.div>
 

@@ -3,7 +3,7 @@ import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import Logo from "./Logo";
 
-const links = ["Products", "How It Works", "Pricing", "FAQ"];
+const links = ["Products", "How It Works", "Pricing", "FAQ", "About"];
 
 export default function Nav() {
   const [scrolled, setScrolled] = useState(false);
@@ -85,7 +85,7 @@ export default function Nav() {
               display: "inline-block",
             }}
           >
-            Get a Quote
+            Get a Free Quote
           </motion.a>
         </div>
 
@@ -154,7 +154,7 @@ export default function Nav() {
                   display: "block", textAlign: "center", marginTop: 12,
                 }}
               >
-                Get a Quote
+                Get a Free Quote
               </a>
             </div>
           </motion.div>

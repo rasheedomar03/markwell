@@ -37,7 +37,7 @@ export default function Footer() {
         {/* Bottom row: copyright + legal links */}
         <div style={{ display: "flex", flexWrap: "wrap", alignItems: "center", justifyContent: "space-between", gap: 12, paddingTop: 20, borderTop: "1px solid var(--border)" }}>
           <p style={{ fontSize: 12, color: "var(--text-muted)" }}>
-            © {new Date().getFullYear()} Wearmill. Custom printed products for businesses.
+            © {new Date().getFullYear()} Wearmill. Custom printed products for businesses. Last updated June 2026.
           </p>
           <div style={{ display: "flex", gap: 20 }}>
             <a

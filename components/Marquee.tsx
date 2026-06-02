@@ -8,8 +8,8 @@ const items = [
   "Corporate Merch",
   "Drinkware",
   "Promo Items",
-  "No Setup Fees",
-  "Fast Turnaround",
+  "Free Shipping $500+",
+  "Ships in 5–7 Days",
   "Quote in 24 hrs",
 ];
 

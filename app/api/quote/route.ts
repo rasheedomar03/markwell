@@ -58,6 +58,11 @@ export async function POST(req: Request) {
     return NextResponse.json({ error: "Invalid request." }, { status: 400 });
   }
 
+  // Honeypot check — bots fill hidden fields
+  if (body.hp_website) {
+    return NextResponse.json({ success: true });
+  }
+
   const name = typeof body.name === "string" ? body.name.trim().slice(0, 200) : "";
   const business = typeof body.business === "string" ? body.business.trim().slice(0, 200) : "";
   const email = typeof body.email === "string" ? body.email.trim().slice(0, 320) : "";

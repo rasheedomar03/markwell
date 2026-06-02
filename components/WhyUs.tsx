@@ -6,23 +6,23 @@ import { Zap, Eye, HandCoins, Repeat } from "lucide-react";
 const reasons = [
   {
     Icon: Eye,
-    title: "Transparent from day one",
-    desc: "You see the price before you commit. No hidden fees, no surprise surcharges, no minimums on most items.",
+    title: "See your price before you commit",
+    desc: "Every quote is itemized. You know exactly what you're paying per unit, per color, per product before you approve anything.",
   },
   {
     Icon: Zap,
-    title: "Fast, reliable turnaround",
-    desc: "Quote back in 24 hours. Production starts the day you approve. Most orders ship within a week.",
+    title: "Quote in 24 hours. Ships in a week.",
+    desc: "Send us your logo and quantity. We quote within a day. Production starts the moment you approve, and most orders ship in 5-7 business days.",
   },
   {
     Icon: HandCoins,
-    title: "Pricing that scales with you",
-    desc: "The more you order, the less you pay per unit. Volume discounts built into every tier.",
+    title: "Order 24 or 2,400. Volume pricing built in.",
+    desc: "No minimums on most items. The more you order, the less you pay per unit. Volume discounts are built into every tier.",
   },
   {
     Icon: Repeat,
-    title: "Reorder in seconds",
-    desc: "Once your art is set up, reorders are one message away. Same quality, same pricing, no re-setup.",
+    title: "Same order, one message. We keep your files.",
+    desc: "Need another run? We store your artwork and order details. Reorders take one message and zero re-setup.",
   },
 ];
 

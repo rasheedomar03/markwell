@@ -21,8 +21,8 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Wearmill — Custom Printed Products for Your Business",
-  description: "Custom apparel, hats, drinkware, and branded merch — screen printed and embroidered. Serving businesses from Houston, TX. T-shirts from $6.49/unit.",
+  title: "Wearmill — Screen Printing & Embroidery | Custom Merch from $6.49/unit",
+  description: "Custom t-shirts, embroidered hats, tote bags, and branded merch for businesses. Quote in 24 hours, ships in 5-7 days. Houston, TX.",
   metadataBase: new URL("https://wearmill.com"),
   keywords: [
     "custom t-shirts Houston",
@@ -35,8 +35,8 @@ export const metadata: Metadata = {
     "corporate merch",
   ],
   openGraph: {
-    title: "Wearmill — Custom Printed Products for Your Business",
-    description: "Screen printing, embroidery, and branded merch for businesses. T-shirts from $6.49/unit. Houston, TX.",
+    title: "Wearmill — Screen Printing & Embroidery | Custom Merch from $6.49/unit",
+    description: "Custom t-shirts, embroidered hats, and branded merch. Quote in 24 hours, ships in a week. Houston, TX.",
     siteName: "Wearmill",
     type: "website",
     locale: "en_US",
@@ -68,6 +68,10 @@ const localBusinessJsonLd = {
     "@type": "Country",
     name: "United States",
   },
+  founder: {
+    "@type": "Person",
+    name: "Rasheed Omar",
+  },
   priceRange: "$$",
   knowsAbout: [
     "Screen Printing",
@@ -76,6 +80,63 @@ const localBusinessJsonLd = {
     "Promotional Products",
     "Branded Merchandise",
   ],
+};
+
+const howToJsonLd = {
+  "@context": "https://schema.org",
+  "@type": "HowTo",
+  name: "How to Order Custom Printed Merch from Wearmill",
+  description: "Order custom screen printed or embroidered merchandise for your business in three steps.",
+  step: [
+    {
+      "@type": "HowToStep",
+      position: 1,
+      name: "Send us your logo",
+      text: "Tell us the product, quantity, and upload your logo or design. We'll send back an itemized quote within 24 hours.",
+    },
+    {
+      "@type": "HowToStep",
+      position: 2,
+      name: "Approve your proof",
+      text: "Every order includes a free digital proof. You see exactly how your logo will look before we print a single shirt.",
+    },
+    {
+      "@type": "HowToStep",
+      position: 3,
+      name: "Get it delivered",
+      text: "Printed, quality-checked, and shipped to your door in 5-7 business days. Orders over $500 ship free.",
+    },
+  ],
+};
+
+const productJsonLd = {
+  "@context": "https://schema.org",
+  "@type": "Product",
+  name: "Custom Screen Printed T-Shirts",
+  description: "Custom screen printed t-shirts for businesses. 1-color imprint on Gildan Heavy Cotton. Volume pricing from $6.49/unit at 576+ units.",
+  brand: { "@type": "Brand", name: "Wearmill" },
+  offers: {
+    "@type": "AggregateOffer",
+    lowPrice: "6.49",
+    highPrice: "11.99",
+    priceCurrency: "USD",
+    offerCount: 5,
+    availability: "https://schema.org/InStock",
+  },
+};
+
+const personJsonLd = {
+  "@context": "https://schema.org",
+  "@type": "Person",
+  name: "Rasheed Omar",
+  jobTitle: "Founder",
+  worksFor: { "@type": "Organization", name: "Wearmill" },
+  address: {
+    "@type": "PostalAddress",
+    addressLocality: "Houston",
+    addressRegion: "TX",
+    addressCountry: "US",
+  },
 };
 
 const faqJsonLd = {
@@ -159,6 +220,18 @@ export default function RootLayout({
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(faqJsonLd) }}
+        />
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(howToJsonLd) }}
+        />
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(productJsonLd) }}
+        />
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(personJsonLd) }}
         />
       </head>
       <body className="min-h-full flex flex-col">

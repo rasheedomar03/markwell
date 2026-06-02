@@ -1,29 +1,87 @@
 "use client";
-import { useState } from "react";
+import { useState, useRef } from "react";
 
 type Status = "idle" | "loading" | "success" | "error";
+type FieldErrors = { name?: string; email?: string; message?: string };
+
+const inputBase: React.CSSProperties = {
+  width: "100%",
+  background: "var(--bg)",
+  border: "1px solid var(--border)",
+  borderRadius: 8,
+  padding: "12px 16px",
+  color: "var(--text)",
+  fontSize: 14,
+  outline: "none",
+  boxSizing: "border-box",
+  transition: "border-color 0.15s, box-shadow 0.15s",
+};
 
 export default function Contact() {
   const [status, setStatus] = useState<Status>("idle");
   const [errorMsg, setErrorMsg] = useState("");
   const [fileName, setFileName] = useState<string | null>(null);
+  const [fieldErrors, setFieldErrors] = useState<FieldErrors>({});
+  const formRef = useRef<HTMLFormElement>(null);
 
   function readFileAsBase64(file: File): Promise<string> {
     return new Promise((resolve, reject) => {
       const reader = new FileReader();
       reader.onload = () => {
         const result = reader.result as string;
-        resolve(result.split(",")[1]); // strip data:...;base64, prefix
+        resolve(result.split(",")[1]);
       };
       reader.onerror = reject;
       reader.readAsDataURL(file);
     });
   }
 
+  function validate(form: HTMLFormElement): FieldErrors {
+    const errors: FieldErrors = {};
+    const name = (form.elements.namedItem("name") as HTMLInputElement).value.trim();
+    const email = (form.elements.namedItem("email") as HTMLInputElement).value.trim();
+    const message = (form.elements.namedItem("message") as HTMLTextAreaElement).value.trim();
+
+    if (!name) errors.name = "Name is required.";
+    if (!email) {
+      errors.email = "Email is required.";
+    } else if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
+      errors.email = "Enter a valid email address.";
+    }
+    if (!message) errors.message = "Tell us what you need.";
+
+    return errors;
+  }
+
   async function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
     e.preventDefault();
-    setStatus("loading");
+    setFieldErrors({});
+    setErrorMsg("");
+
     const form = e.currentTarget;
+
+    // Honeypot check
+    const hp = (form.elements.namedItem("hp_website") as HTMLInputElement).value;
+    if (hp) {
+      setStatus("success");
+      return;
+    }
+
+    const errors = validate(form);
+    if (Object.keys(errors).length > 0) {
+      setFieldErrors(errors);
+      // Focus the first field with an error
+      const order: (keyof FieldErrors)[] = ["name", "email", "message"];
+      for (const key of order) {
+        if (errors[key]) {
+          (form.elements.namedItem(key) as HTMLElement)?.focus();
+          break;
+        }
+      }
+      return;
+    }
+
+    setStatus("loading");
     const fileInput = form.elements.namedItem("attachment") as HTMLInputElement;
     const file = fileInput?.files?.[0];
 
@@ -34,10 +92,10 @@ export default function Contact() {
     }
 
     const data: Record<string, string> = {
-      name: (form.elements.namedItem("name") as HTMLInputElement).value,
-      business: (form.elements.namedItem("business") as HTMLInputElement).value,
-      email: (form.elements.namedItem("email") as HTMLInputElement).value,
-      message: (form.elements.namedItem("message") as HTMLTextAreaElement).value,
+      name: (form.elements.namedItem("name") as HTMLInputElement).value.trim(),
+      business: (form.elements.namedItem("business") as HTMLInputElement).value.trim(),
+      email: (form.elements.namedItem("email") as HTMLInputElement).value.trim(),
+      message: (form.elements.namedItem("message") as HTMLTextAreaElement).value.trim(),
     };
 
     if (file) {
@@ -60,8 +118,38 @@ export default function Contact() {
     }
   }
 
+  function inputStyle(hasError: boolean): React.CSSProperties {
+    return {
+      ...inputBase,
+      borderColor: hasError ? "#f87171" : "var(--border)",
+    };
+  }
+
   return (
     <section id="contact" style={{ padding: "100px 24px", background: "var(--bg)" }}>
+      <style>{`
+        .wm-input:focus-visible {
+          border-color: rgba(228,184,77,0.4) !important;
+          box-shadow: 0 0 0 3px rgba(228,184,77,0.1);
+        }
+        .wm-input.is-error:focus-visible {
+          border-color: #f87171 !important;
+          box-shadow: 0 0 0 3px rgba(248,113,113,0.1);
+        }
+        .wm-btn:focus-visible {
+          box-shadow: 0 0 0 3px rgba(228,184,77,0.25);
+          outline: none;
+        }
+        .wm-btn:active:not(:disabled) {
+          transform: translateY(1px);
+          opacity: 0.85 !important;
+        }
+        .wm-upload:focus-within {
+          border-color: rgba(228,184,77,0.4);
+          box-shadow: 0 0 0 3px rgba(228,184,77,0.1);
+        }
+      `}</style>
+
       <div className="contact-grid" style={{ maxWidth: 1120, margin: "0 auto" }}>
 
         {/* Left: Copy */}
@@ -70,7 +158,7 @@ export default function Contact() {
             Get Started
           </p>
           <h2 style={{ fontSize: "clamp(32px, 4vw, 48px)", fontWeight: 700, letterSpacing: "-0.03em", color: "var(--text)", lineHeight: 1.1, marginBottom: 24 }}>
-            Ready to order?
+            Get your free quote.
           </h2>
           <p style={{ fontSize: 16, color: "var(--text-secondary)", lineHeight: 1.75, marginBottom: 48 }}>
             Tell us what you need — product, quantity, and your logo — and we&apos;ll send a quote back within 24 hours. No back-and-forth, no surprises.
@@ -79,7 +167,7 @@ export default function Contact() {
           <div style={{ display: "flex", flexDirection: "column", gap: 24 }}>
             {[
               { label: "Quick turnaround", desc: "Quote in under 24 hours, production starts same day." },
-              { label: "Transparent pricing", desc: "What you see is what you pay. No setup fees." },
+              { label: "Transparent pricing", desc: "What you see is what you pay. Setup fees waived at 96+ units." },
               { label: "Ships to your door", desc: "Fully printed, quality-checked, delivered directly." },
             ].map(item => (
               <div key={item.label} style={{ display: "flex", gap: 16, alignItems: "flex-start" }}>
@@ -131,85 +219,100 @@ export default function Contact() {
           </div>
         ) : (
         <form
+          ref={formRef}
           onSubmit={handleSubmit}
           style={{ display: "flex", flexDirection: "column", gap: 16 }}
+          noValidate
         >
+          {/* Honeypot — hidden from real users */}
+          <div aria-hidden="true" tabIndex={-1} style={{ position: "absolute", left: "-9999px", top: "-9999px", height: 0, overflow: "hidden" }}>
+            <label>
+              Website
+              <input type="text" name="hp_website" tabIndex={-1} autoComplete="off" />
+            </label>
+          </div>
+
           <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 16 }}>
             <div>
-              <label style={{ display: "block", fontSize: 12, fontWeight: 500, color: "var(--text-secondary)", marginBottom: 8, letterSpacing: "0.02em" }}>
-                Your Name
+              <label htmlFor="wm-name" style={{ display: "block", fontSize: 12, fontWeight: 500, color: "var(--text-secondary)", marginBottom: 8, letterSpacing: "0.02em" }}>
+                Your Name <span style={{ color: "#f87171" }}>*</span>
               </label>
               <input
+                id="wm-name"
+                className={`wm-input${fieldErrors.name ? " is-error" : ""}`}
                 type="text"
                 name="name"
+                required
+                maxLength={100}
+                autoComplete="name"
                 placeholder="Jane Smith"
-                style={{
-                  width: "100%", background: "var(--bg)", border: "1px solid var(--border)", borderRadius: 8,
-                  padding: "12px 16px", color: "var(--text)", fontSize: 14, outline: "none",
-                  boxSizing: "border-box",
-                  transition: "border-color 0.15s",
-                }}
-                onFocus={e => (e.currentTarget.style.borderColor = "rgba(228,184,77,0.4)")}
-                onBlur={e => (e.currentTarget.style.borderColor = "var(--border)")}
+                style={inputStyle(!!fieldErrors.name)}
+                onChange={() => fieldErrors.name && setFieldErrors(prev => ({ ...prev, name: undefined }))}
               />
+              {fieldErrors.name && (
+                <p style={{ fontSize: 12, color: "#f87171", margin: "6px 0 0" }}>{fieldErrors.name}</p>
+              )}
             </div>
             <div>
-              <label style={{ display: "block", fontSize: 12, fontWeight: 500, color: "var(--text-secondary)", marginBottom: 8, letterSpacing: "0.02em" }}>
+              <label htmlFor="wm-business" style={{ display: "block", fontSize: 12, fontWeight: 500, color: "var(--text-secondary)", marginBottom: 8, letterSpacing: "0.02em" }}>
                 Business Name
               </label>
               <input
+                id="wm-business"
+                className="wm-input"
                 type="text"
                 name="business"
+                maxLength={100}
+                autoComplete="organization"
                 placeholder="Acme Co."
-                style={{
-                  width: "100%", background: "var(--bg)", border: "1px solid var(--border)", borderRadius: 8,
-                  padding: "12px 16px", color: "var(--text)", fontSize: 14, outline: "none",
-                  boxSizing: "border-box",
-                  transition: "border-color 0.15s",
-                }}
-                onFocus={e => (e.currentTarget.style.borderColor = "rgba(228,184,77,0.4)")}
-                onBlur={e => (e.currentTarget.style.borderColor = "var(--border)")}
+                style={inputStyle(false)}
               />
             </div>
           </div>
 
           <div>
-            <label style={{ display: "block", fontSize: 12, fontWeight: 500, color: "var(--text-secondary)", marginBottom: 8, letterSpacing: "0.02em" }}>
-              Email
+            <label htmlFor="wm-email" style={{ display: "block", fontSize: 12, fontWeight: 500, color: "var(--text-secondary)", marginBottom: 8, letterSpacing: "0.02em" }}>
+              Email <span style={{ color: "#f87171" }}>*</span>
             </label>
             <input
+              id="wm-email"
+              className={`wm-input${fieldErrors.email ? " is-error" : ""}`}
               type="email"
               name="email"
+              required
+              maxLength={254}
+              autoComplete="email"
               placeholder="jane@yourbusiness.com"
-              style={{
-                width: "100%", background: "var(--bg)", border: "1px solid var(--border)", borderRadius: 8,
-                padding: "12px 16px", color: "var(--text)", fontSize: 14, outline: "none",
-                boxSizing: "border-box",
-                transition: "border-color 0.15s",
-              }}
-              onFocus={e => (e.currentTarget.style.borderColor = "rgba(228,184,77,0.4)")}
-              onBlur={e => (e.currentTarget.style.borderColor = "var(--border)")}
+              style={inputStyle(!!fieldErrors.email)}
+              onChange={() => fieldErrors.email && setFieldErrors(prev => ({ ...prev, email: undefined }))}
             />
+            {fieldErrors.email && (
+              <p style={{ fontSize: 12, color: "#f87171", margin: "6px 0 0" }}>{fieldErrors.email}</p>
+            )}
           </div>
 
           <div>
-            <label style={{ display: "block", fontSize: 12, fontWeight: 500, color: "var(--text-secondary)", marginBottom: 8, letterSpacing: "0.02em" }}>
-              What do you need?
+            <label htmlFor="wm-message" style={{ display: "block", fontSize: 12, fontWeight: 500, color: "var(--text-secondary)", marginBottom: 8, letterSpacing: "0.02em" }}>
+              What do you need? <span style={{ color: "#f87171" }}>*</span>
             </label>
             <textarea
+              id="wm-message"
+              className={`wm-input${fieldErrors.message ? " is-error" : ""}`}
               name="message"
+              required
+              maxLength={2000}
               rows={5}
               placeholder="e.g. 150 screen-printed shirts and 50 embroidered hats for our team..."
               style={{
-                width: "100%", background: "var(--bg)", border: "1px solid var(--border)", borderRadius: 8,
-                padding: "12px 16px", color: "var(--text)", fontSize: 14, outline: "none",
-                boxSizing: "border-box",
-                resize: "none", lineHeight: 1.6,
-                transition: "border-color 0.15s",
+                ...inputStyle(!!fieldErrors.message),
+                resize: "none",
+                lineHeight: 1.6,
               }}
-              onFocus={e => (e.currentTarget.style.borderColor = "rgba(228,184,77,0.4)")}
-              onBlur={e => (e.currentTarget.style.borderColor = "var(--border)")}
+              onChange={() => fieldErrors.message && setFieldErrors(prev => ({ ...prev, message: undefined }))}
             />
+            {fieldErrors.message && (
+              <p style={{ fontSize: 12, color: "#f87171", margin: "6px 0 0" }}>{fieldErrors.message}</p>
+            )}
           </div>
 
           {/* File upload */}
@@ -218,10 +321,11 @@ export default function Contact() {
               Attach your logo or design <span style={{ color: "var(--text-muted)" }}>(optional, max 4 MB)</span>
             </label>
             <label
+              className="wm-upload"
               style={{
                 display: "flex", alignItems: "center", gap: 12,
                 padding: "12px 16px", border: "1px solid var(--border)", borderRadius: 8,
-                cursor: "pointer", transition: "border-color 0.15s",
+                cursor: "pointer", transition: "border-color 0.15s, box-shadow 0.15s",
                 background: "var(--bg)",
               }}
               onMouseEnter={e => (e.currentTarget.style.borderColor = "rgba(228,184,77,0.4)")}
@@ -249,24 +353,41 @@ export default function Contact() {
           </div>
 
           {status === "error" && (
-            <p style={{ fontSize: 13, color: "#f87171", margin: 0 }}>{errorMsg}</p>
+            <div role="alert" style={{ fontSize: 13, color: "#f87171", margin: 0, padding: "10px 14px", background: "rgba(248,113,113,0.06)", borderRadius: 8, border: "1px solid rgba(248,113,113,0.15)" }}>
+              {errorMsg} If this keeps happening, email us at{" "}
+              <a href="mailto:hello@wearmill.com" style={{ color: "#f87171", textDecoration: "underline" }}>hello@wearmill.com</a>.
+            </div>
           )}
 
           <button
             type="submit"
             disabled={status === "loading"}
+            className="wm-btn"
             style={{
               background: "var(--gold)", color: "#07070A", fontWeight: 600, fontSize: 15,
               padding: "15px 28px", borderRadius: 10, border: "none",
               cursor: status === "loading" ? "not-allowed" : "pointer",
               opacity: status === "loading" ? 0.7 : 1,
-              transition: "opacity 0.15s", letterSpacing: "-0.01em",
+              transition: "opacity 0.15s, transform 0.1s", letterSpacing: "-0.01em",
+              display: "inline-flex", alignItems: "center", justifyContent: "center", gap: 8,
             }}
             onMouseEnter={e => { if (status !== "loading") e.currentTarget.style.opacity = "0.88"; }}
             onMouseLeave={e => { if (status !== "loading") e.currentTarget.style.opacity = "1"; }}
           >
+            {status === "loading" && (
+              <svg width="16" height="16" viewBox="0 0 16 16" fill="none" style={{ animation: "spin 1s linear infinite" }}>
+                <circle cx="8" cy="8" r="6" stroke="rgba(7,7,10,0.25)" strokeWidth="2" fill="none" />
+                <path d="M14 8a6 6 0 0 0-6-6" stroke="#07070A" strokeWidth="2" strokeLinecap="round" fill="none" />
+              </svg>
+            )}
             {status === "loading" ? "Sending…" : "Send My Quote Request"}
           </button>
+
+          <style>{`
+            @keyframes spin {
+              to { transform: rotate(360deg); }
+            }
+          `}</style>
         </form>
         )}
 

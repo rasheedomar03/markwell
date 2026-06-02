@@ -7,6 +7,7 @@ import WhyUs from "@/components/WhyUs";
 import HowItWorks from "@/components/HowItWorks";
 import Pricing from "@/components/Pricing";
 import FAQ from "@/components/FAQ";
+import About from "@/components/About";
 import Contact from "@/components/Contact";
 import Footer from "@/components/Footer";
 import FadeIn from "@/components/FadeIn";
@@ -28,6 +29,8 @@ export default function Home() {
       <FadeIn><Pricing /></FadeIn>
       <GoldDivider />
       <FadeIn><FAQ /></FadeIn>
+      <GoldDivider />
+      <FadeIn><About /></FadeIn>
       <GoldDivider />
       <FadeIn><Contact /></FadeIn>
       <Footer />

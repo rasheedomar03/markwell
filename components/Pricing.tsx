@@ -21,7 +21,7 @@ export default function Pricing() {
             Custom printed shirts.<br />No surprises.
           </h2>
           <p style={{ fontSize: 15, color: "var(--text-secondary)", maxWidth: 360, lineHeight: 1.7 }}>
-            1-color imprint included. No setup fees. The more you order, the more you save.
+            1-color imprint included. Setup fees waived at 96+ shirts. The more you order, the more you save.
           </p>
         </div>
 
@@ -83,8 +83,23 @@ export default function Pricing() {
           ))}
         </div>
 
+        {/* Ballpark pricing for other products */}
+        <div style={{ marginBottom: 40, display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(200px, 1fr))", gap: 1, background: "var(--border)", borderRadius: 8, overflow: "hidden" }}>
+          {[
+            { product: "Embroidered Hats", from: "$12.99", note: "per unit at 48+" },
+            { product: "Tote Bags", from: "$8.99", note: "per unit at 96+" },
+            { product: "Drinkware", from: "$7.49", note: "per unit at 72+" },
+          ].map(p => (
+            <div key={p.product} style={{ background: "var(--surface)", padding: "20px 24px" }}>
+              <p style={{ fontSize: 13, fontWeight: 600, color: "var(--text)", marginBottom: 6 }}>{p.product}</p>
+              <p style={{ fontSize: 20, fontWeight: 700, color: "var(--gold)", letterSpacing: "-0.02em", marginBottom: 4 }}>from {p.from}</p>
+              <p style={{ fontSize: 12, color: "var(--text-muted)" }}>{p.note}</p>
+            </div>
+          ))}
+        </div>
+
         <p style={{ fontSize: 13, color: "var(--text-muted)", textAlign: "center" }}>
-          Pricing shown for custom t-shirts with 1-color imprint. Other products quoted on request.{" "}
+          T-shirt pricing shown for 1-color imprint. All products quoted with exact pricing on request.{" "}
           <a href="#contact" style={{ color: "var(--gold)", textDecoration: "none" }}>
             Get a custom quote →
           </a>

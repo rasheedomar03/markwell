@@ -5,18 +5,18 @@ import { motion, useInView } from "framer-motion";
 const steps = [
   {
     num: "01",
-    title: "Tell us what you need",
-    desc: "Send your logo, the product you want, and your quantity. We'll get back with a quote in under 24 hours.",
+    title: "Send us your logo",
+    desc: "Tell us the product, quantity, and upload your logo or design. We'll send back an itemized quote within 24 hours.",
   },
   {
     num: "02",
-    title: "Approve your quote",
-    desc: "Clear pricing, no hidden fees. Once you approve, we put the order into production immediately.",
+    title: "Approve your proof",
+    desc: "Every order includes a free digital proof. You see exactly how your logo will look before we print a single shirt.",
   },
   {
     num: "03",
-    title: "Receive your order",
-    desc: "Fully printed, quality-checked, and shipped direct to your door. Ready to hand out or stock your shelves.",
+    title: "Get it delivered",
+    desc: "Printed, quality-checked, and shipped to your door in 5-7 business days. Orders over $500 ship free.",
   },
 ];
 
