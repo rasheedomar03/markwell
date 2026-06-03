@@ -3,12 +3,35 @@ import Link from "next/link";
 
 export const metadata: Metadata = {
   title: "Promotional Products for Trade Shows: What Actually Gets Kept — Wearmill",
-  description: "Which trade show giveaways people actually keep vs throw away. Practical guide to picking promotional products that build brand recognition.",
+  description: "Which trade show giveaways people actually keep vs throw away. Practical guide with real pricing from Wearmill, Houston TX.",
+};
+
+const jsonLd = {
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  headline: "Promotional Products for Trade Shows: What Actually Gets Kept",
+  description: "Which trade show giveaways people actually keep vs throw away. Practical guide with real pricing from Wearmill, Houston TX.",
+  author: { "@type": "Person", name: "Rasheed Omar", jobTitle: "Founder", worksFor: { "@type": "Organization", name: "Wearmill" } },
+  publisher: { "@type": "Organization", name: "Wearmill", url: "https://wearmill.com" },
+  datePublished: "2026-06-02",
+  dateModified: "2026-06-02",
+  mainEntityOfPage: "https://wearmill.com/blog/promotional-products-for-trade-shows",
+};
+
+const faqJsonLd = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  mainEntity: [
+    { "@type": "Question", name: "How far in advance should I order for a trade show?", acceptedAnswer: { "@type": "Answer", text: "At least 3-4 weeks. Standard production is 5-7 business days, but you need time for quoting, proof approval, and shipping to the venue." } },
+    { "@type": "Question", name: "Should I put my logo on the front or back of trade show shirts?", acceptedAnswer: { "@type": "Answer", text: "A small logo on the left chest and your website or tagline on the back. People are more likely to wear a shirt that doesn't look like a billboard." } },
+  ],
 };
 
 export default function Post() {
   return (
     <article style={{ padding: "60px 24px 100px", maxWidth: 680, margin: "0 auto" }}>
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqJsonLd) }} />
 
       <Link href="/blog" style={{ fontSize: 13, color: "var(--gold)", textDecoration: "none", fontFamily: "var(--font-geist-mono)" }}>
         &larr; All posts
@@ -119,6 +142,15 @@ export default function Post() {
             <p>For trade show tees, a small logo on the left chest (front) and your website or tagline on the back works well. People are more likely to wear a shirt that doesn't look like a billboard.</p>
           </div>
         </div>
+
+        <h2 style={{ fontSize: 24, fontWeight: 700, color: "var(--text)", marginTop: 40, marginBottom: 16, fontFamily: "var(--font-heading)" }}>
+          Related guides
+        </h2>
+        <ul style={{ paddingLeft: 20, marginBottom: 32 }}>
+          <li style={{ marginBottom: 8 }}><Link href="/blog/custom-t-shirt-pricing-2026" style={{ color: "var(--gold)" }}>Custom T-Shirt Pricing in 2026</Link> — see what shirts cost at different quantities</li>
+          <li style={{ marginBottom: 8 }}><Link href="/blog/screen-printing-vs-embroidery-vs-dtg" style={{ color: "var(--gold)" }}>Screen Printing vs. Embroidery vs. DTG</Link> — which method is right for your products</li>
+          <li style={{ marginBottom: 8 }}><Link href="/blog/how-to-order-custom-t-shirts" style={{ color: "var(--gold)" }}>How to Order Custom T-Shirts (Step-by-Step)</Link> — the full ordering process</li>
+        </ul>
 
         <div style={{ padding: "24px 28px", background: "var(--surface)", borderRadius: 10, border: "1px solid var(--border)" }}>
           <p style={{ fontSize: 15, color: "var(--text)", fontWeight: 500, marginBottom: 8 }}>

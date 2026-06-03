@@ -6,9 +6,33 @@ export const metadata: Metadata = {
   description: "What to look for in a Houston screen printer: turnaround times, pricing transparency, minimums, and the questions to ask before placing your order.",
 };
 
+const jsonLd = {
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  headline: "Where to Get Custom Screen Printing in Houston, TX",
+  description: "What to look for in a Houston screen printer: turnaround times, pricing transparency, minimums, and the questions to ask before placing your order.",
+  author: { "@type": "Person", name: "Rasheed Omar", jobTitle: "Founder", worksFor: { "@type": "Organization", name: "Wearmill" } },
+  publisher: { "@type": "Organization", name: "Wearmill", url: "https://wearmill.com" },
+  datePublished: "2026-06-02",
+  dateModified: "2026-06-02",
+  mainEntityOfPage: "https://wearmill.com/blog/screen-printing-houston-tx",
+};
+
+const faqJsonLd = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  mainEntity: [
+    { "@type": "Question", name: "Do I need to pick up my order from a Houston screen printer?", acceptedAnswer: { "@type": "Answer", text: "Most Houston printers ship nationwide. At Wearmill, every order ships direct to your address. Free shipping on orders over $500." } },
+    { "@type": "Question", name: "Can Houston screen printers handle rush orders?", acceptedAnswer: { "@type": "Answer", text: "Most shops offer rush turnaround for a 15% surcharge. Availability depends on the shop's current production schedule." } },
+    { "@type": "Question", name: "Does Wearmill have a physical location?", acceptedAnswer: { "@type": "Answer", text: "Wearmill operates as an online-first business based in Houston. The quoting, proofing, and ordering process happens entirely online, which keeps overhead low and prices competitive." } },
+  ],
+};
+
 export default function Post() {
   return (
     <article style={{ padding: "60px 24px 100px", maxWidth: 680, margin: "0 auto" }}>
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqJsonLd) }} />
 
       <Link href="/blog" style={{ fontSize: 13, color: "var(--gold)", textDecoration: "none", fontFamily: "var(--font-geist-mono)" }}>
         &larr; All posts
@@ -126,6 +150,15 @@ export default function Post() {
             <p>Most shops offer rush turnaround for a surcharge (typically 15%). Availability depends on the shop's current production schedule. If you have a hard deadline, mention it upfront in your quote request.</p>
           </div>
         </div>
+
+        <h2 style={{ fontSize: 24, fontWeight: 700, color: "var(--text)", marginTop: 40, marginBottom: 16, fontFamily: "var(--font-heading)" }}>
+          Related guides
+        </h2>
+        <ul style={{ paddingLeft: 20, marginBottom: 32 }}>
+          <li style={{ marginBottom: 8 }}><Link href="/blog/custom-t-shirt-pricing-2026" style={{ color: "var(--gold)" }}>Custom T-Shirt Pricing in 2026</Link> — full pricing breakdown by quantity</li>
+          <li style={{ marginBottom: 8 }}><Link href="/blog/screen-printing-vs-embroidery-vs-dtg" style={{ color: "var(--gold)" }}>Screen Printing vs. Embroidery vs. DTG</Link> — compare all three methods</li>
+          <li style={{ marginBottom: 8 }}><Link href="/blog/how-to-order-custom-t-shirts" style={{ color: "var(--gold)" }}>How to Order Custom T-Shirts (Step-by-Step)</Link> — the full ordering process</li>
+        </ul>
 
         <div style={{ padding: "24px 28px", background: "var(--surface)", borderRadius: 10, border: "1px solid var(--border)" }}>
           <p style={{ fontSize: 15, color: "var(--text)", fontWeight: 500, marginBottom: 8 }}>

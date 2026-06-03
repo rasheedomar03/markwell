@@ -6,9 +6,33 @@ export const metadata: Metadata = {
   description: "A step-by-step guide to ordering custom printed t-shirts for your business: choosing blanks, submitting artwork, approving proofs, and receiving your order.",
 };
 
+const jsonLd = {
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  headline: "How to Order Custom T-Shirts for Your Company (Step-by-Step)",
+  description: "A step-by-step guide to ordering custom printed t-shirts for your business: choosing blanks, submitting artwork, approving proofs, and receiving your order.",
+  author: { "@type": "Person", name: "Rasheed Omar", jobTitle: "Founder", worksFor: { "@type": "Organization", name: "Wearmill" } },
+  publisher: { "@type": "Organization", name: "Wearmill", url: "https://wearmill.com" },
+  datePublished: "2026-06-02",
+  dateModified: "2026-06-02",
+  mainEntityOfPage: "https://wearmill.com/blog/how-to-order-custom-t-shirts",
+};
+
+const faqJsonLd = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  mainEntity: [
+    { "@type": "Question", name: "How far in advance should I order custom t-shirts?", acceptedAnswer: { "@type": "Answer", text: "Allow 2 weeks minimum: a few days for quoting and proof approval, plus 5-7 business days for production and shipping. For events, order at least 3 weeks out." } },
+    { "@type": "Question", name: "Can I order just one custom shirt?", acceptedAnswer: { "@type": "Answer", text: "With DTG printing, yes. For screen printing, the minimum is typically 24 units because of the screen setup involved." } },
+    { "@type": "Question", name: "What if I need custom t-shirts faster?", acceptedAnswer: { "@type": "Answer", text: "Rush orders (under 7 business days) are usually available for a 15% surcharge. Ask your printer about availability before placing the order." } },
+  ],
+};
+
 export default function Post() {
   return (
     <article style={{ padding: "60px 24px 100px", maxWidth: 680, margin: "0 auto" }}>
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqJsonLd) }} />
 
       <Link href="/blog" style={{ fontSize: 13, color: "var(--gold)", textDecoration: "none", fontFamily: "var(--font-geist-mono)" }}>
         &larr; All posts
@@ -134,6 +158,15 @@ export default function Post() {
             <p>Rush orders (under 7 business days) are usually available for a 15% surcharge. Ask your printer about availability before placing the order.</p>
           </div>
         </div>
+
+        <h2 style={{ fontSize: 24, fontWeight: 700, color: "var(--text)", marginTop: 40, marginBottom: 16, fontFamily: "var(--font-heading)" }}>
+          Related guides
+        </h2>
+        <ul style={{ paddingLeft: 20, marginBottom: 32 }}>
+          <li style={{ marginBottom: 8 }}><Link href="/blog/custom-t-shirt-pricing-2026" style={{ color: "var(--gold)" }}>Custom T-Shirt Pricing in 2026</Link> — exact per-unit costs by blank and quantity</li>
+          <li style={{ marginBottom: 8 }}><Link href="/blog/promotional-products-for-trade-shows" style={{ color: "var(--gold)" }}>Promotional Products for Trade Shows</Link> — what to order beyond t-shirts</li>
+          <li style={{ marginBottom: 8 }}><Link href="/blog/screen-printing-houston-tx" style={{ color: "var(--gold)" }}>Screen Printing in Houston, TX</Link> — what to look for in a local printer</li>
+        </ul>
 
         <div style={{ padding: "24px 28px", background: "var(--surface)", borderRadius: 10, border: "1px solid var(--border)" }}>
           <p style={{ fontSize: 15, color: "var(--text)", fontWeight: 500, marginBottom: 8 }}>

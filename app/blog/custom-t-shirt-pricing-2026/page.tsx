@@ -3,12 +3,35 @@ import Link from "next/link";
 
 export const metadata: Metadata = {
   title: "How Much Do Custom T-Shirts Cost in 2026? Real Pricing Breakdown — Wearmill",
-  description: "Actual per-unit costs for custom screen printed, DTG, and embroidered t-shirts in 2026 across different quantities and blank garment tiers.",
+  description: "Actual per-unit costs for custom screen printed, DTG, and embroidered t-shirts in 2026. Real pricing by quantity and blank from Wearmill, Houston TX.",
+};
+
+const jsonLd = {
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  headline: "How Much Do Custom T-Shirts Cost in 2026? Real Pricing Breakdown",
+  description: "Actual per-unit costs for custom screen printed, DTG, and embroidered t-shirts in 2026. Real pricing by quantity and blank from Wearmill, Houston TX.",
+  author: { "@type": "Person", name: "Rasheed Omar", jobTitle: "Founder", worksFor: { "@type": "Organization", name: "Wearmill" } },
+  publisher: { "@type": "Organization", name: "Wearmill", url: "https://wearmill.com" },
+  datePublished: "2026-06-02",
+  dateModified: "2026-06-02",
+  mainEntityOfPage: "https://wearmill.com/blog/custom-t-shirt-pricing-2026",
+};
+
+const faqJsonLd = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  mainEntity: [
+    { "@type": "Question", name: "Why is there such a wide price range for custom t-shirts?", acceptedAnswer: { "@type": "Answer", text: "The blank garment, print method, number of colors, and quantity all affect the price. A 1-color Gildan at 576 units ($6.49) and a 4-color Comfort Colors at 24 units ($20+) are completely different jobs." } },
+    { "@type": "Question", name: "Can I get exact custom t-shirt pricing without placing an order?", acceptedAnswer: { "@type": "Answer", text: "Yes. Send your logo, product choice, and estimated quantity. We send back an itemized quote within 24 hours with no obligation." } },
+  ],
 };
 
 export default function Post() {
   return (
     <article style={{ padding: "60px 24px 100px", maxWidth: 680, margin: "0 auto" }}>
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqJsonLd) }} />
 
       <Link href="/blog" style={{ fontSize: 13, color: "var(--gold)", textDecoration: "none", fontFamily: "var(--font-geist-mono)" }}>
         &larr; All posts
@@ -154,6 +177,15 @@ export default function Post() {
             <p>Yes. Send us your logo, product choice, and estimated quantity. We'll send back an itemized quote within 24 hours with no obligation.</p>
           </div>
         </div>
+
+        <h2 style={{ fontSize: 24, fontWeight: 700, color: "var(--text)", marginTop: 40, marginBottom: 16, fontFamily: "var(--font-heading)" }}>
+          Related guides
+        </h2>
+        <ul style={{ paddingLeft: 20, marginBottom: 32 }}>
+          <li style={{ marginBottom: 8 }}><Link href="/blog/screen-printing-vs-embroidery-vs-dtg" style={{ color: "var(--gold)" }}>Screen Printing vs. Embroidery vs. DTG</Link> — compare methods by cost, durability, and use case</li>
+          <li style={{ marginBottom: 8 }}><Link href="/blog/how-to-order-custom-t-shirts" style={{ color: "var(--gold)" }}>How to Order Custom T-Shirts (Step-by-Step)</Link> — the full process from blank to delivery</li>
+          <li style={{ marginBottom: 8 }}><Link href="/blog/screen-printing-houston-tx" style={{ color: "var(--gold)" }}>Screen Printing in Houston, TX</Link> — Houston pricing comparison</li>
+        </ul>
 
         <div style={{ padding: "24px 28px", background: "var(--surface)", borderRadius: 10, border: "1px solid var(--border)" }}>
           <p style={{ fontSize: 15, color: "var(--text)", fontWeight: 500, marginBottom: 8 }}>

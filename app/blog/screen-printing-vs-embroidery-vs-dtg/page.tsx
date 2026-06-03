@@ -6,9 +6,33 @@ export const metadata: Metadata = {
   description: "Compare screen printing, embroidery, and DTG printing by cost, durability, and best use case. Real pricing and minimums from Wearmill, Houston TX.",
 };
 
+const jsonLd = {
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  headline: "Screen Printing vs. Embroidery vs. DTG: Which Is Right for Your Order?",
+  description: "Compare screen printing, embroidery, and DTG printing by cost, durability, and best use case. Real pricing and minimums from Wearmill, Houston TX.",
+  author: { "@type": "Person", name: "Rasheed Omar", jobTitle: "Founder", worksFor: { "@type": "Organization", name: "Wearmill" } },
+  publisher: { "@type": "Organization", name: "Wearmill", url: "https://wearmill.com" },
+  datePublished: "2026-06-02",
+  dateModified: "2026-06-02",
+  mainEntityOfPage: "https://wearmill.com/blog/screen-printing-vs-embroidery-vs-dtg",
+};
+
+const faqJsonLd = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  mainEntity: [
+    { "@type": "Question", name: "Can I combine printing methods on the same order?", acceptedAnswer: { "@type": "Answer", text: "Yes. You can screen print the back of a t-shirt and embroider the front left chest, for example. Each method is priced separately." } },
+    { "@type": "Question", name: "Which printing method lasts the longest?", acceptedAnswer: { "@type": "Answer", text: "Embroidery is the most durable. Screen printing holds up for 50+ washes when properly cured. DTG lasts 30-50 washes with proper care." } },
+    { "@type": "Question", name: "What if I don't know which printing method to use?", acceptedAnswer: { "@type": "Answer", text: "Send us your logo and tell us what product and quantity you're thinking. We'll recommend the best method and quote all applicable options so you can compare." } },
+  ],
+};
+
 export default function Post() {
   return (
     <article style={{ padding: "60px 24px 100px", maxWidth: 680, margin: "0 auto" }}>
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqJsonLd) }} />
 
       <Link href="/blog" style={{ fontSize: 13, color: "var(--gold)", textDecoration: "none", fontFamily: "var(--font-geist-mono)" }}>
         &larr; All posts
@@ -139,6 +163,15 @@ export default function Post() {
             <p>Send us your logo and tell us what product and quantity you're thinking. We'll recommend the best method and quote all applicable options so you can compare.</p>
           </div>
         </div>
+
+        <h2 style={{ fontSize: 24, fontWeight: 700, color: "var(--text)", marginTop: 40, marginBottom: 16, fontFamily: "var(--font-heading)" }}>
+          Related guides
+        </h2>
+        <ul style={{ paddingLeft: 20, marginBottom: 32 }}>
+          <li style={{ marginBottom: 8 }}><Link href="/blog/custom-t-shirt-pricing-2026" style={{ color: "var(--gold)" }}>How Much Do Custom T-Shirts Cost in 2026?</Link> — full pricing breakdown by quantity and blank</li>
+          <li style={{ marginBottom: 8 }}><Link href="/blog/how-to-order-custom-t-shirts" style={{ color: "var(--gold)" }}>How to Order Custom T-Shirts (Step-by-Step)</Link> — the full ordering process explained</li>
+          <li style={{ marginBottom: 8 }}><Link href="/blog/screen-printing-houston-tx" style={{ color: "var(--gold)" }}>Screen Printing in Houston, TX</Link> — what to look for in a local printer</li>
+        </ul>
 
         <div style={{ padding: "24px 28px", background: "var(--surface)", borderRadius: 10, border: "1px solid var(--border)" }}>
           <p style={{ fontSize: 15, color: "var(--text)", fontWeight: 500, marginBottom: 8 }}>

@@ -41,6 +41,14 @@ export default function Footer() {
           </p>
           <div style={{ display: "flex", gap: 20 }}>
             <a
+              href="/blog"
+              style={linkStyle}
+              onMouseEnter={e => (e.currentTarget.style.color = "var(--text-secondary)")}
+              onMouseLeave={e => (e.currentTarget.style.color = "var(--text-muted)")}
+            >
+              Blog
+            </a>
+            <a
               href="/privacy"
               style={linkStyle}
               onMouseEnter={e => (e.currentTarget.style.color = "var(--text-secondary)")}
