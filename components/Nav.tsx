@@ -3,7 +3,13 @@ import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import Logo from "./Logo";
 
-const links = ["Products", "How It Works", "Pricing", "FAQ", "About"];
+const links = [
+  { label: "Products", href: "/#products" },
+  { label: "How It Works", href: "/#how-it-works" },
+  { label: "Pricing", href: "/#pricing" },
+  { label: "FAQ", href: "/#faq" },
+  { label: "Blog", href: "/blog" },
+];
 
 export default function Nav() {
   const [scrolled, setScrolled] = useState(false);
@@ -34,7 +40,7 @@ export default function Nav() {
       }}
     >
       <div style={{ maxWidth: 1120, margin: "0 auto", padding: "0 24px", height: 72, display: "flex", alignItems: "center", justifyContent: "space-between" }}>
-        <a href="#" style={{ textDecoration: "none" }}>
+        <a href="/" style={{ textDecoration: "none" }}>
           <Logo variant="full" size="sm" />
         </a>
 
@@ -42,22 +48,22 @@ export default function Nav() {
         <div className="nav-desktop" style={{ display: "flex", alignItems: "center", gap: 32 }}>
           {links.map((l) => (
             <a
-              key={l}
-              href={`#${l.toLowerCase().replace(/\s+/g, "-")}`}
+              key={l.label}
+              href={l.href}
               style={{
-                color: hoveredLink === l ? "var(--text)" : "var(--text-secondary)",
+                color: hoveredLink === l.label ? "var(--text)" : "var(--text-secondary)",
                 fontSize: 14,
                 textDecoration: "none",
                 transition: "color 0.15s",
                 position: "relative",
                 paddingBottom: 3,
               }}
-              onMouseEnter={() => setHoveredLink(l)}
+              onMouseEnter={() => setHoveredLink(l.label)}
               onMouseLeave={() => setHoveredLink(null)}
             >
-              {l}
+              {l.label}
               <AnimatePresence>
-                {hoveredLink === l && (
+                {hoveredLink === l.label && (
                   <motion.span
                     layoutId="nav-underline"
                     initial={{ opacity: 0 }}
@@ -75,7 +81,7 @@ export default function Nav() {
           ))}
 
           <motion.a
-            href="#contact"
+            href="/#contact"
             whileHover={{ opacity: 0.88, scale: 1.02 }}
             whileTap={{ scale: 0.97 }}
             transition={{ duration: 0.15 }}
@@ -134,19 +140,19 @@ export default function Nav() {
             <div style={{ padding: "16px 24px 24px", display: "flex", flexDirection: "column", gap: 4 }}>
               {links.map((l) => (
                 <a
-                  key={l}
-                  href={`#${l.toLowerCase().replace(/\s+/g, "-")}`}
+                  key={l.label}
+                  href={l.href}
                   onClick={() => setMobileOpen(false)}
                   style={{
                     color: "var(--text-secondary)", fontSize: 16, textDecoration: "none",
                     padding: "12px 0", borderBottom: "1px solid var(--border)",
                   }}
                 >
-                  {l}
+                  {l.label}
                 </a>
               ))}
               <a
-                href="#contact"
+                href="/#contact"
                 onClick={() => setMobileOpen(false)}
                 style={{
                   background: "var(--gold)", color: "#07070A", fontSize: 15, fontWeight: 600,
